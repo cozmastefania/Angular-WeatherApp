@@ -1,0 +1,16 @@
+<div class="content">
+    <div class="login-container">
+        <div class="login-title">Weather app</div>
+
+        <form class="form-field-login">
+
+            <input class="input-field-login" type="email" placeholder="Enter your email" name="email" [(ngModel)]="email">
+            <input class="input-field-login" type="password" placeholder="Enter your password" name="password" [(ngModel)]="password">
+
+            <button class="log-in-button" (click)="loginUser()">Log in</button>
+            <button class="register-button" (click)="redirectToRegister()"> Or register here </button>
+        
+        </form>
+
+    </div>
+</div>

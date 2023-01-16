@@ -1,1 +1,320 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --blue-1: #3C429E;
+    --blue-2: #4C52AD;
+    --yellow-1: #FAC742;
+    --white: #FFF;
+    --grey-1: #EDEDED;
+    --shadow-dark: rgba(0,0,0,0.3);
+    --shadow-light: rgba(255,255,255,0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fff7f2;;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+
+.content {
+    font-size: 16px;
+    width: 100%;
+    height: 93vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+/* home page style */
+
+.nav-bar {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color:#66523e;
+    width: 100%;
+    padding: 15px;
+}
+
+.log {
+    display: flex;
+    flex-direction: row;
+}
+
+.log:hover {
+    cursor: pointer;
+}
+
+.container {
+    width: 650px;
+    height: 90vh;
+    background-color: #66523e;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px var(--shadow-dark);
+}
+
+.upper-data {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 50%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.upper-data img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.lower-data {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 28px;
+    font-weight: 600px;
+    height: 100px;
+    margin-bottom: 35px;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.input-field {
+
+    font-size: 23px;
+    border-radius: 6px;
+    margin-top: 10px;
+    border-color: #FFF;
+    background-color: rgba(0,0,0,0.3);
+    color: white;
+    
+}
+
+.search-button {
+    width: 100px;
+    font-size: 19px;
+    font-weight: 600;
+    border-radius: 6px;
+    margin-top: 10px;
+    border-color: #FFF;
+    background-color: rgba(0,0,0,0.3);
+    color: white;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.weather-data {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: var(--shadow-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.location {
+    color: var(--white);
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: 600;
+}
+
+.temperature {
+    color: var(--white);
+    font-size: 4em;
+    text-align: center;
+    font-weight: 900;
+}
+
+.more-info-label {
+    color: var(--white);
+    font-size: 27px;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.more-info-container {
+    font-size: 24px;
+    height: 475px;
+    flex: 1;
+    background-color: var(--shadow-light);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-top: 1em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.info-block {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+}
+
+.info-block-label {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-block-label img {
+    width: 70px;
+    height: 70px;
+}
+
+.info-block-label span {
+    color: var(--white);
+    font-size: 0.8em;
+}
+
+.info-block-value {
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: var(--white);
+}
+
+/* login style */
+.login-container {
+    width: 900px;
+    height: 50vh;
+    background-color: #66523e;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px var(--shadow-dark);
+}
+
+.login-title {
+    font-family: 'Dancing Script', cursive;
+    color: var(--white);
+    font-size: 60px;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 30px;
+}
+
+.form-field-login {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 28px;
+    font-weight: 600px;
+    height: 100px;
+    margin-top: 120px;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.input-field-login {
+    margin: 20px;
+    padding: 10px;
+    width: 700px;
+    font-size: 26px;
+    border-radius: 6px;
+    margin-top: 10px;
+    border-color: #FFF;
+    background-color: rgba(0,0,0,0.3);
+    color: white;
+}
+
+.log-in-button {
+    width: 600px;
+    font-size: 26px;
+    padding: 10px;
+    font-weight: 600;
+    border-radius: 6px;
+    margin-top: 10px;
+    border-color: #FFF;
+    background-color: rgba(0,0,0,0.3);
+    color: white;
+    margin-bottom: 20px;
+}
+
+.register-button {
+    font-size: 21px;
+    padding: 10px;
+    background:none;
+    border: none;
+    color: white;
+    text-decoration: underline;
+    
+}
+
+/* register style */
+
+.register-container {
+    width: 900px;
+    height: 60vh;
+    background-color: #66523e;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px var(--shadow-dark);
+}
+
+.register-title {
+    font-family: 'Dancing Script', cursive;
+    color: var(--white);
+    font-size: 60px;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 30px;
+}
+
+.form-field-register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.input-field-register {
+    margin: 20px;
+    padding: 10px;
+    width: 700px;
+    font-size: 26px;
+    border-radius: 6px;
+    margin-top: 10px;
+    border-color: #FFF;
+    background-color: rgba(0,0,0,0.3);
+    color: white;
+}
+
+.button-to-register {
+    width: 600px;
+    font-size: 26px;
+    padding: 10px;
+    font-weight: 600;
+    border-radius: 6px;
+    margin-top: 15px;
+    border-color: #FFF;
+    background-color: rgba(0,0,0,0.3);
+    color: white;
+    margin-bottom: 20px;
+}
