@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {RegisterService} from '../services/register.service'
+import { ForecastService } from 'src/app/services/forecast.service';
+import { RegisterService } from '../services/register.service'
 
 @Component({
   selector: 'app-home',
@@ -13,19 +14,20 @@ export class HomeComponent implements OnInit {
   sunriseTime!: number;
   sunsetTime!: number;
   cityName: string = 'Cluj';
-  nameToShow!:string;
+  nameToShow!: string;
+  forecast: any = [];
 
-  constructor(private auth:RegisterService) { }
+  constructor(private auth: RegisterService) { }
 
   ngOnInit(): void {
     this.getWeatherData('Cluj');
   }
 
-  getWeatherData (cityName: any) {
+  getWeatherData(cityName: any) {
     this.nameToShow = cityName;
     fetch('https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=5fe302f14d5bd84b4b60562300f00762')
-    .then(response => response.json())
-    .then(data => this.setWeatherData(data));
+      .then(response => response.json())
+      .then(data => this.setWeatherData(data));
   }
 
   setWeatherData(data: any) {
@@ -48,7 +50,7 @@ export class HomeComponent implements OnInit {
   // logIn() {
   //   if (localStorage.getItem('token')) {
   //     this.auth.logoutUser();
-    
+
   // }
 
 }

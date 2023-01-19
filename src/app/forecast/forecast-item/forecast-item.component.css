@@ -1,0 +1,66 @@
+.forecast-item {
+  border-radius: 8px;
+  border: 1px solid lightgrey;
+  display: inline-block;
+  margin: 5px;
+  padding: 10px 0;
+  max-width: 10em;
+  font-family: 'Nunito', sans-serif;
+}
+
+.forecast-item-content {
+  margin: .3em;
+  text-align: center;
+}
+
+.forecast-date {
+  line-height: 15px;
+  margin-bottom: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  opacity: .5;
+}
+
+.forecast-item-content p {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-weight: 600;
+}
+
+.forecast-item-content p span {
+  font-weight: 400;
+}
+
+.forecast-item-content p svg {
+  width: 1.3em;
+}
+
+.forecast-item-content p svg.temp {
+  fill: #B4B4B4;
+  width: .8em;
+  height: 1.5em;
+  margin-left: -.3em;
+}
+
+.forecast-item-content .temp-min {
+  fill: #9FD9F1;
+}
+
+.forecast-item-content .temp-max {
+  fill: #F8C049;
+}
+
+.forecast-item-content .wind-speed {
+  fill: #0a88fe;
+}
+
+.forecast-icon {
+  min-height: 90px;
+  min-width: 90px;
+}
+
+.forecast-icon p {
+  margin-top: -15px;
+  margin-bottom: 10px;
+}

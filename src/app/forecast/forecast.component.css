@@ -1,0 +1,14 @@
+.forecast-list h2 {
+  font-family: 'Nunito', sans-serif;
+  text-align: center;
+}
+
+.forecast-list {
+  width: 80%;
+  height: 20%;
+  margin: 1em auto 1em auto;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #a6a6a6;
+  padding: 30px;
+}
