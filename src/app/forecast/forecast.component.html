@@ -1,0 +1,15 @@
+<div class="forecast-list">
+  <h2 class="forecast-header">5 day / 3 hour forecast</h2>
+  <p-carousel
+    class="custom"
+    [value]="forecastList"
+    [numVisible]="4"
+    [numScroll]="4"
+    [circular]="false"
+    [showNavigators]="true"
+  >
+    <ng-template let-forecast pTemplate="item">
+      <app-forecast-item [forecast]="forecast"></app-forecast-item>
+    </ng-template>
+  </p-carousel>
+</div>
