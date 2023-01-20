@@ -1,0 +1,18 @@
+.cityList {
+  text-align: center;
+  width: 20%;
+  margin: auto;
+}
+
+.cityList li {
+  list-style: none;
+  border: #766452 solid 2px;
+  border-radius: 5px;
+  margin: 1em 0;
+}
+
+.cityList li:hover {
+  background-color: #766452;
+  color: #fff;
+  cursor: pointer;
+}

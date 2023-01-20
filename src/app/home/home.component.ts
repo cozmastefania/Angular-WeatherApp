@@ -1,12 +1,10 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import {Database, remove, ref, onValue, getDatabase, DataSnapshot} from 'firebase/database';
 import { ForecastService } from 'src/app/services/forecast.service';
 import { RegisterService } from '../services/register.service';
-
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -19,16 +17,16 @@ export class HomeComponent implements OnInit {
   sunriseTime!: number;
   sunsetTime!: number;
   cityName: string = 'Cluj';
-  nameToShow!:string;
-  isAdded!:boolean;
+  isLoggedIn!: any;
+  nameToShow!: string;
+  isAdded!: boolean;
 
   favoritesRef!: AngularFireList<object>;
   user!: any;
   dataFromFavorites!: object;
   favoriteCity: Array<string> = [];
-  isLoggedIn!:any;
 
-  constructor(private auth:RegisterService, private httpClient: HttpClient, private data: AngularFirestore, public firedb: AngularFireDatabase) { 
+  constructor(private auth: RegisterService, public firedb: AngularFireDatabase, private router: Router) {
     this.isLoggedIn = localStorage.getItem('user');
     console.log(this.isLoggedIn);
 
@@ -75,8 +73,8 @@ export class HomeComponent implements OnInit {
     console.log(this.WeatherData);
   }
 
-  logOut() {
-    this.auth.logoutUser();
+  onLoadCityList() {
+    this.router.navigate(['/city-list']);
   }
 
   addFavorite() {
