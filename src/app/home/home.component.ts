@@ -3,6 +3,7 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/datab
 import { ref, onValue, getDatabase } from 'firebase/database';
 import { RegisterService } from '../services/register.service';
 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -25,7 +26,7 @@ export class HomeComponent implements OnInit {
   dataFromFavorites!: object;
   favoriteCity: Array<string> = [];
 
-  constructor(private auth: RegisterService, public firedb: AngularFireDatabase) {
+  constructor(private auth: RegisterService, public firedb: AngularFireDatabase, private router:Router) {
     this.isLoggedIn = localStorage.getItem('user');
     console.log(this.isLoggedIn);
 
@@ -72,8 +73,8 @@ export class HomeComponent implements OnInit {
     console.log(this.WeatherData);
   }
 
-  logOut() {
-    this.auth.logoutUser();
+  onLoadCityList() {
+    this.router.navigate(['/city-list']);
   }
 
   addFavorite() {
