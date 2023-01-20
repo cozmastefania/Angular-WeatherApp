@@ -1,24 +1,27 @@
-:root {
-    --blue-1: #3C429E;
-    --blue-2: #4C52AD;
-    --yellow-1: #FAC742;
-    --white: #FFF;
-    --grey-1: #EDEDED;
-    --shadow-dark: rgba(0,0,0,0.3);
-    --shadow-light: rgba(255,255,255,0.1);
-}
+ :root {
+     --blue-1: #3C429E;
+     --blue-2: #4C52AD;
+     --yellow-1: #FAC742;
+     --white: #FFF;
+     --grey-1: #EDEDED;
+     --shadow-dark: rgba(0, 0, 0, 0.3);
+     --shadow-light: rgba(255, 255, 255, 0.1);
+ }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
 
-body {
-    background-color: #fff7f2;;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    
-}
+ body {
+     background-color: #fff7f2;
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+ }
+
+
+
 
 .content {
     font-size: 16px;
@@ -220,120 +223,120 @@ button:hover {
     color: var(--white);
 }
 
-/* login style */
-.login-container {
-    width: 900px;
-    height: 50vh;
-    background-color: #66523e;
-    border-radius: 20px;
-    box-shadow: 10px 10px 10px var(--shadow-dark);
-}
+ /* login style */
+ .login-container {
+     width: 900px;
+     height: 50vh;
+     background-color: #66523e;
+     border-radius: 20px;
+     box-shadow: 10px 10px 10px var(--shadow-dark);
+ }
 
-.login-title {
-    font-family: 'Dancing Script', cursive;
-    color: var(--white);
-    font-size: 60px;
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 30px;
-}
+ .login-title {
+     font-family: 'Dancing Script', cursive;
+     color: var(--white);
+     font-size: 60px;
+     text-align: center;
+     padding-top: 15px;
+     padding-bottom: 30px;
+ }
 
-.form-field-login {
-    display: flex;
-    flex-direction: column;
-    color: white;
-    font-size: 28px;
-    font-weight: 600px;
-    height: 100px;
-    margin-top: 120px;
-    align-items: center;
-    justify-content: center;
-   
-}
+ .form-field-login {
+     display: flex;
+     flex-direction: column;
+     color: white;
+     font-size: 28px;
+     font-weight: 600px;
+     height: 100px;
+     margin-top: 120px;
+     align-items: center;
+     justify-content: center;
 
-.input-field-login {
-    margin: 20px;
-    padding: 10px;
-    width: 700px;
-    font-size: 26px;
-    border-radius: 6px;
-    margin-top: 10px;
-    border-color: #FFF;
-    background-color: rgba(0,0,0,0.3);
-    color: white;
-}
+ }
 
-.log-in-button {
-    width: 600px;
-    font-size: 26px;
-    padding: 10px;
-    font-weight: 600;
-    border-radius: 6px;
-    margin-top: 10px;
-    border-color: #FFF;
-    background-color: rgba(0,0,0,0.3);
-    color: white;
-    margin-bottom: 20px;
-}
+ .input-field-login {
+     margin: 20px;
+     padding: 10px;
+     width: 700px;
+     font-size: 26px;
+     border-radius: 6px;
+     margin-top: 10px;
+     border-color: #FFF;
+     background-color: rgba(0, 0, 0, 0.3);
+     color: white;
+ }
 
-.register-button {
-    font-size: 21px;
-    padding: 10px;
-    background:none;
-    border: none;
-    color: white;
-    text-decoration: underline;
-    
-}
+ .log-in-button {
+     width: 600px;
+     font-size: 26px;
+     padding: 10px;
+     font-weight: 600;
+     border-radius: 6px;
+     margin-top: 10px;
+     border-color: #FFF;
+     background-color: rgba(0, 0, 0, 0.3);
+     color: white;
+     margin-bottom: 20px;
+ }
 
-/* register style */
+ .register-button {
+     font-size: 21px;
+     padding: 10px;
+     background: none;
+     border: none;
+     color: white;
+     text-decoration: underline;
 
-.register-container {
-    width: 900px;
-    height: 60vh;
-    background-color: #66523e;
-    border-radius: 20px;
-    box-shadow: 10px 10px 10px var(--shadow-dark);
-}
+ }
 
-.register-title {
-    font-family: 'Dancing Script', cursive;
-    color: var(--white);
-    font-size: 60px;
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 30px;
-}
+ /* register style */
 
-.form-field-register {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-   
-}
+ .register-container {
+     width: 900px;
+     height: 60vh;
+     background-color: #66523e;
+     border-radius: 20px;
+     box-shadow: 10px 10px 10px var(--shadow-dark);
+ }
 
-.input-field-register {
-    margin: 20px;
-    padding: 10px;
-    width: 700px;
-    font-size: 26px;
-    border-radius: 6px;
-    margin-top: 10px;
-    border-color: #FFF;
-    background-color: rgba(0,0,0,0.3);
-    color: white;
-}
+ .register-title {
+     font-family: 'Dancing Script', cursive;
+     color: var(--white);
+     font-size: 60px;
+     text-align: center;
+     padding-top: 15px;
+     padding-bottom: 30px;
+ }
 
-.button-to-register {
-    width: 600px;
-    font-size: 26px;
-    padding: 10px;
-    font-weight: 600;
-    border-radius: 6px;
-    margin-top: 15px;
-    border-color: #FFF;
-    background-color: rgba(0,0,0,0.3);
-    color: white;
-    margin-bottom: 20px;
-}
+ .form-field-register {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+
+ }
+
+ .input-field-register {
+     margin: 20px;
+     padding: 10px;
+     width: 700px;
+     font-size: 26px;
+     border-radius: 6px;
+     margin-top: 10px;
+     border-color: #FFF;
+     background-color: rgba(0, 0, 0, 0.3);
+     color: white;
+ }
+
+ .button-to-register {
+     width: 600px;
+     font-size: 26px;
+     padding: 10px;
+     font-weight: 600;
+     border-radius: 6px;
+     margin-top: 15px;
+     border-color: #FFF;
+     background-color: rgba(0, 0, 0, 0.3);
+     color: white;
+     margin-bottom: 20px;
+ }

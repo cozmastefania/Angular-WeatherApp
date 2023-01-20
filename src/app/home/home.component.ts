@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import {Database, ref, onValue, getDatabase, DataSnapshot} from 'firebase/database';
-import {RegisterService} from '../services/register.service';
+import { ForecastService } from 'src/app/services/forecast.service';
+import { RegisterService } from '../services/register.service';
 
 
 @Component({
@@ -18,47 +19,22 @@ export class HomeComponent implements OnInit {
   sunriseTime!: number;
   sunsetTime!: number;
   cityName: string = 'Cluj';
-  nameToShow:string = 'Cluj';
-  isLoggedIn!:any;
+  nameToShow!:string;
   isAdded!:boolean;
+  favoriteCity!:string;
 
-  favoritesRef!: AngularFireList<object>;
-  user!: any;
-  dataFromFavorites!: object;
-  favoriteCity: Array<string> = [];
-
-  constructor(private auth:RegisterService, private httpClient: HttpClient, private data: AngularFirestore, public firedb: AngularFireDatabase) { 
-    this.isLoggedIn = localStorage.getItem('user');
-    console.log(this.isLoggedIn);
-
-    this.user = this.auth.getUserLoggedIn();
-    const db = getDatabase();
-    const starRef = ref(db, 'favorites/' + this.user);
-    console.log(starRef);
-
-    onValue(starRef, (snapshot) => {
-      this.dataFromFavorites = snapshot.val();
-      console.log(this.dataFromFavorites);
-      Object.values(this.dataFromFavorites).map((data) => {
-        this.favoriteCity.push(data);
-      });
-      this.isAdded = this.favoriteCity.includes(this.nameToShow);
-      console.log(this.isAdded)
-    })
-    
-    console.log(this.favoriteCity)
-  }
+  constructor(private auth:RegisterService) { }
 
   ngOnInit(): void {
     this.getWeatherData('Cluj');
   }
 
-  getWeatherData (cityName: any) {
+  getWeatherData(cityName: any) {
     this.nameToShow = cityName;
     this.isAdded = this.favoriteCity.includes(this.nameToShow);
     fetch('https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=5fe302f14d5bd84b4b60562300f00762')
-    .then(response => response.json())
-    .then(data => this.setWeatherData(data));
+      .then(response => response.json())
+      .then(data => this.setWeatherData(data));
   }
 
   setWeatherData(data: any) {
