@@ -1,0 +1,33 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #66523e;
+  width: 100%;
+  padding: 1em;
+}
+
+.log {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.log:hover {
+  cursor: pointer;
+}
+
+.city-list a {
+  color: #66523e;
+  text-decoration: none;
+}
+
+.active {
+  border-bottom: solid .2em #66523e;
+  color: #66523e;
+  text-decoration: none;
+  padding: .2em;
+}

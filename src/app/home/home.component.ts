@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ForecastService } from 'src/app/services/forecast.service';
-import { RegisterService } from '../services/register.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +16,7 @@ export class HomeComponent implements OnInit {
   nameToShow!: string;
   forecast: any = [];
 
-  constructor(private auth: RegisterService) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.getWeatherData('Cluj');
@@ -43,14 +42,8 @@ export class HomeComponent implements OnInit {
     console.log(this.WeatherData);
   }
 
-  logOut() {
-    this.auth.logoutUser();
+  onLoadCityList() {
+    this.router.navigate(['/city-list']);
   }
-
-  // logIn() {
-  //   if (localStorage.getItem('token')) {
-  //     this.auth.logoutUser();
-
-  // }
 
 }

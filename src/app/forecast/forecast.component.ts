@@ -1,4 +1,5 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { ForecastService } from 'src/app/services/forecast.service';
 
@@ -7,7 +8,7 @@ import { ForecastService } from 'src/app/services/forecast.service';
   templateUrl: './forecast.component.html',
   styleUrls: ['./forecast.component.css']
 })
-export class ForecastComponent implements OnChanges {
+export class ForecastComponent implements OnChanges, OnDestroy {
   @Input()
   coord!: {
     lon: number;
@@ -16,18 +17,21 @@ export class ForecastComponent implements OnChanges {
   @Input() measureOfTemp: string = "";
 
   forecastList: any[] = [];
+  forecastSub!: Subscription;
 
   constructor(
     private forecastService: ForecastService
   ) { }
 
   ngOnChanges(): void {
-    this.forecastService.getForecastByCity(this.coord.lon, this.coord.lat)
+    this.forecastSub = this.forecastService.getForecastByCity(this.coord.lon, this.coord.lat)
       .subscribe(data => {
         this.forecastList = data.list;
-        console.log(this.forecastList);
       })
-    console.log(this.coord)
+  }
+
+  ngOnDestroy(): void {
+    this.forecastSub.unsubscribe();
   }
 
 }

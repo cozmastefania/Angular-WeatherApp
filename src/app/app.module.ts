@@ -19,6 +19,9 @@ import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { TabViewModule } from 'primeng/tabview';
+import { CityListComponent } from './city-list/city-list.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { CityComponent } from './city-list/city/city.component';
 
 
 @NgModule({
@@ -29,6 +32,9 @@ import { TabViewModule } from 'primeng/tabview';
     HomeComponent,
     ForecastItemComponent,
     ForecastComponent,
+    CityListComponent,
+    NavbarComponent,
+    CityComponent,
   ],
   imports: [
     BrowserModule,
