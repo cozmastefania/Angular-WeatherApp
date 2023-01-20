@@ -1,19 +1,20 @@
 .home-content {
-  width: 90%;
-  margin: auto;
+  width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: space-around;
   font-size: 1em;
+  height: 100%;
+  align-items: center;
 }
 
 .home-container {
-  width: 20em;
+  width: 30%;
+  margin: 0;
   background-color: #66523e;
   border-radius: 20px;
   box-shadow: 10px 10px 10px var(--shadow-dark);
 }
 
+/* home page style */
 .upper-data {
   position: relative;
   overflow: hidden;
@@ -60,13 +61,7 @@
   color: white;
 }
 
-.home-buttons {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-}
-
-.home-buttons button {
+.search-button {
   color: white;
   font-size: 1em;
   font-weight: 600;

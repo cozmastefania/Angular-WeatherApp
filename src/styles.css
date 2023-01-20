@@ -1,11 +1,12 @@
  :root {
-     --blue-1: #3C429E;
-     --blue-2: #4C52AD;
-     --yellow-1: #FAC742;
-     --white: #FFF;
-     --grey-1: #EDEDED;
-     --shadow-dark: rgba(0, 0, 0, 0.3);
-     --shadow-light: rgba(255, 255, 255, 0.1);
+     --white: #F2F2F2;
+     --black: #0C0C0D;
+     --light-grey: #AAAEB2;
+     --dark-text: #4A5856;
+     --darker-grey: #797476;
+     --light-blue: #5B96AD;
+     --dark-blue-title: #1F326F;
+     --dark-green-title: #0A595B;
  }
 
  * {
@@ -15,7 +16,7 @@
  }
 
  body {
-     background-color: #fff7f2;
+     background-color: var(--white);
      font-family: Verdana, Geneva, Tahoma, sans-serif;
 
  }
@@ -137,3 +138,12 @@
      color: white;
      margin-bottom: 20px;
  }
+
+ .p-carousel .p-carousel-indicators {
+     display: none;
+ }
+
+ /* .p-carousel .p-carousel-content .p-carousel-next,
+ .p-carousel .p-carousel-content .p-carousel-prev {
+     display: none;
+ } */

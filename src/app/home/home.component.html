@@ -12,15 +12,16 @@
             name="cityName"
             [(ngModel)]="cityName"
           />
-          <div class="home-buttons">
             <button class="search-button" (click)="getWeatherData(cityName)">
               Search
             </button>
-            <!-- <button class="city-list" (click)="onLoadCityList()">
-              Load city list
-            </button> -->
-          </div>
         </form>
+
+        <!-- <div class="city-list">
+          <button  (click)="onLoadCityList()">
+            Load city list
+          </button>
+        </div> -->
 
         <div class="location">
           {{ nameToShow }}
@@ -98,5 +99,6 @@
       </div>
     </div>
   </div>
+  <hr />
   <app-forecast [coord]="WeatherData.coord"></app-forecast>
 </div>

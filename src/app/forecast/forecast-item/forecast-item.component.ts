@@ -7,16 +7,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ForecastItemComponent implements OnInit {
   @Input() forecast: any;
-  @Input() currentDay: boolean = false;
-  @Input() date: number = 0;
-  @Input() temperatureDay: number = 0;
-  @Input() temperatureNight: number = 0;
-  @Input() description: string = "";
-  @Input() iconClassname: string = "";
-  @Input() measureOfTemp: string = "";
+  time: string = '';
+  date: any;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.time = `${this.forecast.dt_txt.split(" ")[1].split(":")[0]}:00`;
+    var date = new Date(this.forecast.dt_txt);
+    this.date= (date.getMonth() + 1).toLocaleString('en-US') + '/' + date.getDate();
+    console.log(this.date);
   }
+
 }
+
