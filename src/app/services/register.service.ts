@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import {AngularFireAuth} from '@angular/fire/compat/auth'
+import {AngularFireAuth} from '@angular/fire/compat/auth';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -7,11 +9,34 @@ import { Router } from '@angular/router';
 })
 export class RegisterService {
 
+  favoritesRef!: AngularFireList<object>;
+  user!: any;
+  dataFromFavorites!: object;
+  favoriteCity: Array<string> = [];
 
-  constructor(private fireauth : AngularFireAuth, private router : Router) {
-  
+  constructor(private fireauth : AngularFireAuth, private router : Router, public firedb: AngularFireDatabase) {
+    
+    this.user = this.getUserLoggedIn();
+    this.favoritesRef = firedb.list(`favorites/${this?.user}`);
+    console.log(this.favoritesRef);
+
    }
+   
 
+
+   getUserLoggedIn() {
+      return localStorage.getItem('user');
+    }
+
+    createFavorite(fav: any) {
+      console.log(this.favoriteCity.includes(fav))
+      if (this.favoriteCity.includes(fav)) {
+        return
+      }
+      return this.favoritesRef.push(fav);
+    }
+
+   
    registerUser(email: string, password:string) {
     return this.fireauth.createUserWithEmailAndPassword(email,password).then( () => {
       alert('Registration Succesful')
@@ -24,8 +49,9 @@ export class RegisterService {
 
    loginUser(email: string, password: string) {
     
-    return this.fireauth.signInWithEmailAndPassword(email, password).then( () => {
-      localStorage.setItem('user', JSON.stringify(email));
+    return this.fireauth.signInWithEmailAndPassword(email, password).then( (data) => {
+      console.log(data.user?.uid);
+      localStorage.setItem('user', JSON.stringify(data.user?.uid));
       alert('Log in Succesful')
       this.router.navigate(['/home']);
     }, err => {

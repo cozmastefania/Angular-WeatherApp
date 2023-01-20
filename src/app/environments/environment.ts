@@ -5,12 +5,13 @@
 export const environment = {
   production: false,
   firebaseConfig : {
-    apiKey: "AIzaSyDtH5kqVj3cFO6y_amO7tGoAxKyR3Up0tQ",
-    authDomain: "weatherapp-31eb3.firebaseapp.com",
-    projectId: "weatherapp-31eb3",
-    storageBucket: "weatherapp-31eb3.appspot.com",
-    messagingSenderId: "557425731468",
-    appId: "1:557425731468:web:fab9a0290cb2972da458a9"
+    apiKey: "AIzaSyCtIgIqZbAcMIDg4whxz2LE2ueDp9hcrzw",
+    authDomain: "angular-weather-app-9f751.firebaseapp.com",
+    databaseURL: "https://angular-weather-app-9f751-default-rtdb.firebaseio.com",
+    projectId: "angular-weather-app-9f751",
+    storageBucket: "angular-weather-app-9f751.appspot.com",
+    messagingSenderId: "687468579669",
+    appId: "1:687468579669:web:3533df639739b2d93afddc"
   }
 };
 

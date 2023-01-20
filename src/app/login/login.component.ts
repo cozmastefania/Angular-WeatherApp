@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/register']);
   }
 
-  loginUser() {
+  loginUser() { 
     if(this.email == '') {
       alert('Please enter email');
       return;
@@ -34,5 +34,7 @@ export class LoginComponent implements OnInit {
     // this.email = '';
     // this.password = '';
   }
+
+ 
 
 }
