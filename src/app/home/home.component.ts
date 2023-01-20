@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
+import { ref, onValue, getDatabase } from 'firebase/database';
+import { RegisterService } from '../services/register.service';
+
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,10 +17,36 @@ export class HomeComponent implements OnInit {
   sunriseTime!: number;
   sunsetTime!: number;
   cityName: string = 'Cluj';
+  isLoggedIn!: any;
   nameToShow!: string;
-  forecast: any = [];
+  isAdded!: boolean;
 
-  constructor(private router: Router) { }
+  favoritesRef!: AngularFireList<object>;
+  user!: any;
+  dataFromFavorites!: object;
+  favoriteCity: Array<string> = [];
+
+  constructor(private auth: RegisterService, public firedb: AngularFireDatabase, private router:Router) {
+    this.isLoggedIn = localStorage.getItem('user');
+    console.log(this.isLoggedIn);
+
+    this.user = this.auth.getUserLoggedIn();
+    const db = getDatabase();
+    const starRef = ref(db, 'favorites/' + this.user);
+    console.log(starRef);
+
+    onValue(starRef, (snapshot) => {
+      this.dataFromFavorites = snapshot.val();
+      console.log(this.dataFromFavorites);
+      Object.values(this.dataFromFavorites).map((data) => {
+        this.favoriteCity.push(data);
+      });
+      this.isAdded = this.favoriteCity.includes(this.nameToShow);
+      console.log(this.isAdded)
+    })
+
+    console.log(this.favoriteCity)
+  }
 
   ngOnInit(): void {
     this.getWeatherData('Cluj');
@@ -24,6 +54,7 @@ export class HomeComponent implements OnInit {
 
   getWeatherData(cityName: any) {
     this.nameToShow = cityName;
+    this.isAdded = this.favoriteCity.includes(this.nameToShow);
     fetch('https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=5fe302f14d5bd84b4b60562300f00762')
       .then(response => response.json())
       .then(data => this.setWeatherData(data));
@@ -44,6 +75,14 @@ export class HomeComponent implements OnInit {
 
   onLoadCityList() {
     this.router.navigate(['/city-list']);
+  }
+
+  addFavorite() {
+    this.auth.createFavorite(this.cityName);
+  }
+
+  removeFavorite() {
+    console.log("remove")
   }
 
 }
