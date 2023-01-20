@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
 import { ref, onValue, getDatabase } from 'firebase/database';
 import { RegisterService } from '../services/register.service';
-
-import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -26,7 +24,7 @@ export class HomeComponent implements OnInit {
   dataFromFavorites!: object;
   favoriteCity: Array<string> = [];
 
-  constructor(private auth: RegisterService, public firedb: AngularFireDatabase, private router:Router) {
+  constructor(private auth: RegisterService, public firedb: AngularFireDatabase, private router: Router) {
     this.isLoggedIn = localStorage.getItem('user');
     console.log(this.isLoggedIn);
 
