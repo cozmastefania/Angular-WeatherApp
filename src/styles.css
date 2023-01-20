@@ -16,7 +16,7 @@
  }
 
  body {
-     background-color: #fff7f2;
+     background-color: var(--white);
      font-family: Verdana, Geneva, Tahoma, sans-serif;
 
  }
@@ -138,3 +138,12 @@
      color: white;
      margin-bottom: 20px;
  }
+
+ .p-carousel .p-carousel-indicators {
+     display: none;
+ }
+
+ /* .p-carousel .p-carousel-content .p-carousel-next,
+ .p-carousel .p-carousel-content .p-carousel-prev {
+     display: none;
+ } */

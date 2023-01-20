@@ -1,13 +1,20 @@
 .forecast-list h2 {
+  margin-left: 2.5em;
   font-family: 'Nunito', sans-serif;
-  text-align: center;
+  background-color: rgb(125, 105, 186);
+  background-image: linear-gradient(170deg, rgba(125, 105, 186, 1) 7%, rgba(62, 150, 166, 1) 14%, rgba(12, 186, 153, 1) 21%);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
 }
 
 .forecast-list {
-  width: 45em;
-  background-color: #766452;
-  border-radius: 1em;
-  border: 1px solid #a6a6a6;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 55em;
   padding: 2em;
-  color: #fff;
+  top: 5em;
+
 }
