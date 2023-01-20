@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/compat/auth';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import {ref, remove} from '@angular/fire/database';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -30,9 +30,6 @@ export class RegisterService {
 
     createFavorite(fav: any) {
       console.log(this.favoriteCity.includes(fav))
-      if (this.favoriteCity.includes(fav)) {
-        return
-      }
       return this.favoritesRef.push(fav);
     }
 
