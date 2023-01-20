@@ -16,12 +16,32 @@ export class ForecastComponent implements OnChanges, OnDestroy {
   };
   @Input() measureOfTemp: string = "";
 
+  // responsiveOptions = [{}];
   forecastList: any[] = [];
   forecastSub!: Subscription;
 
   constructor(
     private forecastService: ForecastService
-  ) { }
+  ) {
+    // this.responsiveOptions = [
+    //         {
+    //             breakpoint: '1024px',
+    //             numVisible: 4,
+    //             numScroll: 4
+    //         },
+    //         {
+    //             breakpoint: '768px',
+    //             numVisible: 3,
+    //             numScroll: 3
+    //         },
+    //         {
+    //             breakpoint: '560px',
+    //             numVisible: 2,
+    //             numScroll: 2
+    //         }
+    //     ];
+    }
+
 
   ngOnChanges(): void {
     this.forecastSub = this.forecastService.getForecastByCity(this.coord.lon, this.coord.lat)

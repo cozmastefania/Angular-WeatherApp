@@ -4,16 +4,10 @@
 }
 
 .forecast-list {
-  border: blue solid 2px;
-  position: absolute;
-  /* display: flex; */
-  width: 70%;
-  margin-top: -15%;
-  /*  height: 20%;
-  margin: 1em auto 1em auto;
+  width: 45em;
   background-color: #766452;
-  border-radius: 8px;
+  border-radius: 1em;
   border: 1px solid #a6a6a6;
-  padding: 30px;
-  color: #fff; */
+  padding: 2em;
+  color: #fff;
 }

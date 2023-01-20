@@ -1,22 +1,19 @@
 .home-content {
-  border: red solid 2px;
-  width: 100%;
+  width: 90%;
+  margin: auto;
   display: flex;
-  font-size: 1em;
-  height: 100%;
   align-items: center;
+  justify-content: space-around;
+  font-size: 1em;
 }
 
 .home-container {
-  border: yellow solid 2px;
-  width: 30%;
-  margin: 0;
+  width: 20em;
   background-color: #66523e;
   border-radius: 20px;
   box-shadow: 10px 10px 10px var(--shadow-dark);
 }
 
-/* home page style */
 .upper-data {
   position: relative;
   overflow: hidden;
