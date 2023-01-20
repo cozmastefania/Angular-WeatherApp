@@ -10,7 +10,6 @@
   },
   "private": true,
   "dependencies": {
-    "@fortawesome/angular-fontawesome": "^0.12.1",
     "@angular/animations": "^14.2.0",
     "@angular/common": "^14.2.0",
     "@angular/compiler": "^14.2.0",
@@ -20,6 +19,7 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "@fortawesome/angular-fontawesome": "^0.12.1",
     "primeicons": "^6.0.1",
     "primeng": "^15.0.1",
     "rxjs": "~7.5.0",
@@ -31,12 +31,16 @@
     "@angular/cli": "~14.2.9",
     "@angular/compiler-cli": "^14.2.0",
     "@types/jasmine": "~4.0.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
+    "prettier": "^2.8.3",
+    "prettier-eslint": "^15.0.1",
     "typescript": "~4.7.2"
   }
 }
