@@ -143,7 +143,33 @@
      display: none;
  }
 
- /* .p-carousel .p-carousel-content .p-carousel-next,
- .p-carousel .p-carousel-content .p-carousel-prev {
-     display: none;
- } */
+ html,
+ body {
+     height: 100%;
+ }
+
+ body {
+     margin: 0;
+     font-family: Roboto, "Helvetica Neue", sans-serif;
+ }
+
+ .mdc-switch__icons::before {
+     display: inline-block;
+     text-rendering: auto;
+     -webkit-font-smoothing: antialiased;
+ }
+
+ .mdc-switch__icon::before {
+     font: var(--fa-font-solid);
+     content: "\f007";
+ }
+
+ .mdc-switch__icon--off::before {
+     font: var(--fa-font-solid);
+     content: "\f1ea";
+ }
+
+ .mdc-switch__icon--on::before {
+     font: var(--fa-font-solid);
+     content: "\f1ea";
+ }

@@ -13,11 +13,11 @@ export class CityComponent implements OnInit {
 
   ngOnInit(): void {
     this.city = this.route.snapshot.params['name'];
-    this.route.params.subscribe(
-      (params: Params) => {
-        this.city = params['name'];
-      }
-    );
+    // this.route.params.subscribe(
+    //   (params: Params) => {
+    //     this.city = params['name'];
+    //   }
+    // );
   }
 
 }

@@ -1,11 +1,5 @@
 export const appConfig = {
   defaultUnit: 'metric',
-  defaultCity: {
-    coord: {
-      latitude: 51.509865,
-      longitude: -0.118092
-    }
-  }
 };
 
 export const apiConfig = {
@@ -24,7 +18,6 @@ export const apiConfig = {
     }
   },
   updateInterval: {
-    forecast: 300000, // 5 minute
-    weather: 300000 // 5 minute
+    forecast: 300000, 
   }
 };

@@ -4,6 +4,7 @@ import { Observable, interval, startWith } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 
 import { apiConfig } from 'src/app/config';
+import { WeatherService } from 'src/app/services/weather.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ export class ForecastService {
   private forecastUpdateInterval = apiConfig.updateInterval.forecast;
   private unitSystem: string = '';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private weatherService: WeatherService) {
+    this.unitSystem = weatherService.getUnitSystem();
   }
 
   getForecastByCity(lon: number, lat: number): Observable<any> {
