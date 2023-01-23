@@ -1,5 +1,5 @@
 .header-right-block {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   gap: 5px;
 }
