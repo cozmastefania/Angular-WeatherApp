@@ -17,11 +17,9 @@
             </button>
         </form>
 
-        <!-- <div class="city-list">
-          <button  (click)="onLoadCityList()">
-            Load city list
-          </button>
-        </div> -->
+        <button class="city-list"  (click)="onLoadCityList()">
+          Load city list
+        </button>
 
         <div class="location">
           {{ nameToShow }}
@@ -54,7 +52,7 @@
             </svg>
           </div>
         </div>
-        <div class="temperature">{{ WeatherData?.currentTemperature }}° C</div>
+        <div class="temperature">{{ WeatherData?.currentTemperature }}° {{measureOfTemp}}</div>
       </div>
     </div>
     <div class="lower-data">
@@ -99,6 +97,5 @@
       </div>
     </div>
   </div>
-  <hr />
-  <app-forecast [coord]="WeatherData.coord"></app-forecast>
+  <app-forecast [coord]="WeatherData?.coord"></app-forecast>
 </div>

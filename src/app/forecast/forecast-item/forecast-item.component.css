@@ -21,7 +21,7 @@
 
 .forecast-date {
   color: var(--darker-grey);
-  font-size: 1em;
+  font-size: 1.1em;
   font-weight: bold;
   line-height: 1.5;
 }
@@ -32,6 +32,7 @@
   font-weight: bold;
   line-height: 1.5;
   padding-bottom: 1.2em;
+  opacity: .7;
 }
 
 .forecast-item-content p {

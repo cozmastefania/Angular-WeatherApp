@@ -1,15 +1,22 @@
-<div class="forecast-list">
-  <h2 class="forecast-header">5 day / 3 hour forecast</h2>
-  <p-carousel
-    [value]="forecastList"
-    [numVisible]="4"
-    [numScroll]="4"
-    [circular]="false"
-    [showNavigators]="true"
-    [draggable]="true"
-  >
-    <ng-template let-forecast pTemplate="item">
-      <app-forecast-item [forecast]="forecast"></app-forecast-item>
-    </ng-template>
-  </p-carousel>
+<div class="forecast-container">
+  <div class="header">
+  <app-header [currentUnitSystem]="unitSystem" (changeUnit)="changeUnit($event)">
+  </app-header>
+  </div>
+
+  <div class="forecast-list">
+    <h2 class="forecast-title">Forecast for 5 days</h2>
+    <p-carousel
+      [value]="forecastList"
+      [numVisible]="4"
+      [numScroll]="4"
+      [circular]="false"
+      [showNavigators]="true"
+      [draggable]="true"
+    >
+      <ng-template let-forecast pTemplate="item">
+        <app-forecast-item [forecast]="forecast" [measureOfTemp]="measureOfTemp"></app-forecast-item>
+      </ng-template>
+    </p-carousel>
+  </div>
 </div>
