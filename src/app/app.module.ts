@@ -22,6 +22,8 @@ import { TabViewModule } from 'primeng/tabview';
 import { CityListComponent } from './city-list/city-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CityComponent } from './city-list/city/city.component';
+import { HeaderComponent } from './header/header.component';
+import { UiSwitchModule } from 'ngx-ui-switch';
 import { MoreInfoComponent } from './more-info/more-info.component';
 
 
@@ -36,6 +38,7 @@ import { MoreInfoComponent } from './more-info/more-info.component';
     CityListComponent,
     NavbarComponent,
     CityComponent,
+    HeaderComponent,
     MoreInfoComponent,
   ],
   imports: [
@@ -52,7 +55,8 @@ import { MoreInfoComponent } from './more-info/more-info.component';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AngularFireDatabaseModule,
+    AngularFireDatabaseModule, 
+    UiSwitchModule
   ],
   providers: [],
   bootstrap: [AppComponent]

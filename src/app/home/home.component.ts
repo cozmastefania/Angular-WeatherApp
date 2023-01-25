@@ -1,16 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import {Database, remove, ref, onValue, getDatabase, DataSnapshot} from 'firebase/database';
 import { ForecastService } from 'src/app/services/forecast.service';
 import { RegisterService } from '../services/register.service';
+import { apiConfig } from 'src/app/config';
+import { WeatherService } from 'src/app/services/weather.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  measureOfTemp: string = "";
+  unitSystem: string = "";
 
   WeatherData: any;
   currentTime!: number;
@@ -30,9 +34,8 @@ export class HomeComponent implements OnInit {
   key!:any;
   // favoriteCity: Object;
 
-  constructor(private auth: RegisterService, public firedb: AngularFireDatabase, private router: Router) {
+  constructor(private auth: RegisterService, public firedb: AngularFireDatabase, private router: Router, private weatherService: WeatherService) {
     this.isLoggedIn = localStorage.getItem('user');
-    console.log(this.isLoggedIn);
 
     this.user = this.auth.getUserLoggedIn();
     const db = getDatabase();
@@ -47,11 +50,18 @@ export class HomeComponent implements OnInit {
       this.isAdded = this.favoriteCity.includes(this.nameToShow);
       console.log(this.favoriteCity)
     })
-
   }
 
   ngOnInit(): void {
+    this.unitSystem = this.weatherService.getUnitSystem();
+    const measurementUnits = this.unitSystem === "metric" ? apiConfig.measurementUnits.metric : apiConfig.measurementUnits.imperial;
+
+    this.measureOfTemp = measurementUnits.temperature;
     this.getWeatherData('Cluj');
+  }
+
+  changeUnit(unitSystem: string) {
+    this.weatherService.updateUnitSystem(unitSystem);
   }
 
   getWeatherData(cityName: any) {
@@ -67,15 +77,22 @@ export class HomeComponent implements OnInit {
     this.sunriseTime = new Date(data.sys.sunrise * 1000).getHours();
     this.sunsetTime = new Date(data.sys.sunset * 1000).getHours();
     this.currentTime = new Date().getHours();
-    this.WeatherData.currentTemperature = (data.main.temp - 273.15).toFixed(0);
-    this.WeatherData.minTemperature = (data.main.temp_min - 273.15).toFixed(0);
-    this.WeatherData.maxTemperature = (data.main.temp_max - 273.15).toFixed(0);
-    this.WeatherData.humidity = data.main.humidity;
-    this.WeatherData.wind = data.wind.speed;
-    // this.icon += data.waether[0].icon;
-    // this.icon += '@2x.png';
-    this.icon = 'http://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png';
-    console.log(this.WeatherData)
+
+    if(this.unitSystem === 'metric') {
+      this.WeatherData.currentTemperature = (data.main.temp - 273.15).toFixed(0);
+      this.WeatherData.minTemperature = (data.main.temp_min - 273.15).toFixed(0);
+      this.WeatherData.maxTemperature = (data.main.temp_max - 273.15).toFixed(0);
+      this.WeatherData.humidity = data.main.humidity;
+      this.WeatherData.wind = data.wind.speed;
+    } else {
+       this.WeatherData.currentTemperature = ((data.main.temp - 273.15) * (9/5) + 32).toFixed(0);
+      this.WeatherData.minTemperature = ((data.main.temp_max - 273.15) * (9/5) + 32).toFixed(0);
+      this.WeatherData.maxTemperature = ((data.main.temp_min - 273.15) * (9/5) + 32).toFixed(0);
+      this.WeatherData.humidity = data.main.humidity;
+      this.WeatherData.wind = data.wind.speed;
+    }
+    
+    console.log(this.WeatherData);
   }
 
   onLoadCityList() {

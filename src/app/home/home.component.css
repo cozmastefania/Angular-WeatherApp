@@ -99,6 +99,16 @@
   margin-top: 10px;
 }
 
+.city-list {
+  color: white;
+  font-size: 1em;
+  font-weight: 600;
+  border-radius: 5px;
+  border-color: #FFF;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 5px;
+}
+
 button:hover {
   cursor: pointer;
 }

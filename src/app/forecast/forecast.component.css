@@ -1,10 +1,31 @@
+.forecast-container {
+  position: relative;
+  margin: -18em 2em 0 2em;
+  width: 52em;
+}
+
+.header {
+  display: flex;
+  justify-content: end;
+  padding: 1em;
+}
+
+.forecast-list {
+  position: absolute;
+  width: 52em;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--light-grey);
+  padding: 2em 0;
+}
+
 .forecast-list h2 {
   margin-left: 2.5em;
   font-family: 'Nunito', sans-serif;
   background-color: rgb(125, 105, 186);
   background-image: linear-gradient(170deg, rgba(125, 105, 186, 1) 7%, rgba(62, 150, 166, 1) 14%, rgba(12, 186, 153, 1) 21%);
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
+  background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
 }
