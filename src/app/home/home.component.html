@@ -15,9 +15,9 @@
             </button>
         </form>
 
-        <button class="city-list"  (click)="onLoadCityList()">
+        <!-- <button class="city-list"  (click)="onLoadCityList()">
           Load city list
-        </button>
+        </button> -->
 
         <div class="location">
           {{ nameToShow }}
@@ -63,8 +63,6 @@
  
     <div class="right-container">
       <app-forecast [coord]="WeatherData?.coord"></app-forecast>
-
-
   <div class="more-info-container">
     <h2> Today's highlights </h2>
     <div class="info-block">
@@ -103,5 +101,5 @@
       <div class="info-block-value">{{ WeatherData?.wind }} km/h</div>
     </div>
   </div>
-  <app-forecast [coord]="WeatherData?.coord"></app-forecast>
+</div>
 </div>

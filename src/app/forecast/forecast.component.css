@@ -1,23 +1,9 @@
-.forecast-container {
-  position: relative;
-  margin: -18em 2em 0 2em;
-  width: 52em;
-}
-
 .header {
   display: flex;
   justify-content: end;
   padding: 1em;
 }
 
-.forecast-list {
-  position: absolute;
-  width: 52em;
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid var(--light-grey);
-  padding: 2em 0;
-}
 
 .forecast-list h2 {
   margin-left: 2.5em;
