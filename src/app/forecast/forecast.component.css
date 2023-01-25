@@ -10,10 +10,10 @@
 }
 
 .forecast-list {
-  position: absolute;
+  /* position: absolute; */
   display: flex;
   flex-direction: column;
-  width: 55em;
+  width: 74em;
   padding: 2em;
   top: 5em;
 

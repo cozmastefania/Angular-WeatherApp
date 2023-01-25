@@ -1,16 +1,32 @@
 .home-content {
-  width: 100%;
+  width: 83%;
   display: flex;
-  font-size: 1em;
+  font-size: 0.7em;
   height: 100%;
   align-items: center;
+  margin: 50px 100px;
+  border-radius: 20px;
+  box-shadow: 10px 10px 10px var(--shadow-dark);
 }
 
-.home-container {
-  width: 30%;
+.left-container {
+  background-color: white;
+  width: 27%;
+  height: 550px;
   margin: 0;
-  background-color: #66523e;
-  border-radius: 20px;
+  border: 2px solid rgb(125, 105, 186);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  box-shadow: 10px 10px 10px var(--shadow-dark);
+}
+
+.right-container {
+  height: 550px;
+  width: 73%;
+  background-color: #f3f2f5;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: 2px solid rgb(125, 105, 186);
   box-shadow: 10px 10px 10px var(--shadow-dark);
 }
 
@@ -19,12 +35,12 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 50%;
+  height: 67%;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
 
-.upper-data img {
+.lower-data img {
   position: absolute;
   top: 0;
   left: 0;
@@ -35,7 +51,8 @@
 .lower-data {
   position: relative;
   overflow: hidden;
-  border-radius: 20px;
+  border-bottom-left-radius: 18px;
+  height: 33%;
 }
 
 .form-field {
@@ -52,22 +69,32 @@
 
 }
 
+.form-field label {
+  background-color: rgb(125, 105, 186);
+  background-image: linear-gradient(170deg, rgba(125, 105, 186, 1) 7%, rgba(62, 150, 166, 1) 14%, rgba(12, 186, 153, 1) 21%);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
 .input-field {
   font-size: 1em;
-  border-radius: 6px;
+  border-radius: 3px;
   margin-top: 10px;
-  border-color: #FFF;
-  background-color: rgba(0, 0, 0, 0.3);
-  color: white;
+  border: 1.5px solid  rgba(62, 150, 166, 1); 
+  color: black;
 }
 
 .search-button {
   color: white;
   font-size: 1em;
-  font-weight: 600;
   border-radius: 5px;
-  border-color: #FFF;
-  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid #FFF;
+  bbackground-color: rgb(125, 105, 186);
+  background-image: linear-gradient(170deg, rgba(125, 105, 186, 1) 7%, rgba(62, 150, 166, 1) 14%, rgba(12, 186, 153, 1) 21%);
   padding: 5px;
   margin-top: 10px;
 }
@@ -89,41 +116,70 @@ button:hover {
 }
 
 .location {
-  color: var(--white);
+  z-index: 100;
+  display: flex;
+  color: black;
   text-align: center;
   font-size: 2.5em;
   font-weight: 600;
 }
 
+.addFav {
+  margin-left: 10px;
+  fill:rgb(209, 6, 6);
+}
+
+.removeFav {
+  margin-left: 10px;
+  fill:rgb(178, 178, 178);
+}
+
 .temperature {
-  color: var(--white);
-  font-size: 2.5em;
+  color: black;
+  font-size: 2em;
   text-align: center;
   font-weight: 900;
 }
 
 .more-info-label {
-  color: var(--white);
+  color: black;
   font-size: 1em;
   text-align: center;
-  padding-top: 15px;
+  
 }
 
 .more-info-container {
-  font-size: 1em;
-  height: 15em;
+  height: 50%;
   flex: 1;
   background-color: var(--shadow-light);
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  margin-top: 1em;
+  /* margin-top: 1em; */
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
 }
 
+.more-info-container h2 {
+  width: 100%;
+  height: 8%;
+  padding: 0;
+  margin: 0 2.5em;
+  font-family: 'Nunito', sans-serif;
+  background-color: rgb(125, 105, 186);
+  background-image: linear-gradient(170deg, rgba(125, 105, 186, 1) 7%, rgba(62, 150, 166, 1) 14%, rgba(12, 186, 153, 1) 21%);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
 .info-block {
-  width: 50%;
+  font-size: 1.28em;
+  background-color: white;
+  border-radius: 5px;
+  padding: 0;
+  margin: -10px 60px 20px 70px;
+  width: 30%;
   display: flex;
   flex-direction: row;
 }
@@ -137,19 +193,20 @@ button:hover {
 }
 
 .info-block-label img {
-  width: 4em;
-  height: 4em;
+  width: 3em;
+  height: 3em;
 }
 
 .info-block-label span {
-  color: var(--white);
+  color: black;
   font-size: 1em;
 }
 
 .info-block-value {
-  width: 50%;
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  color: var(--white);
+  color: black;
 }

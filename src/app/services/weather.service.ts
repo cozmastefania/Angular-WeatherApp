@@ -6,9 +6,11 @@ import { Injectable, Input } from '@angular/core';
 })
 export class WeatherService {
 
-  
-  
-  weather: any;
+  WeatherData: any;
+  currentTime!: number;
+  sunriseTime!: number;
+  sunsetTime!: number;
+
   constructor(private http: HttpClient) { }
 
   // getWeatherData (cityName: string) {

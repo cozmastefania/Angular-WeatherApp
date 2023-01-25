@@ -16,6 +16,8 @@ export class HomeComponent implements OnInit {
   currentTime!: number;
   sunriseTime!: number;
   sunsetTime!: number;
+  icon!: string;
+
   cityName: string = 'Cluj';
   isLoggedIn!: any;
   nameToShow!: string;
@@ -25,6 +27,8 @@ export class HomeComponent implements OnInit {
   user!: any;
   dataFromFavorites!: object;
   favoriteCity: Array<string> = [];
+  key!:any;
+  // favoriteCity: Object;
 
   constructor(private auth: RegisterService, public firedb: AngularFireDatabase, private router: Router) {
     this.isLoggedIn = localStorage.getItem('user');
@@ -33,19 +37,17 @@ export class HomeComponent implements OnInit {
     this.user = this.auth.getUserLoggedIn();
     const db = getDatabase();
     const starRef = ref(db, 'favorites/' + this.user);
-    console.log(starRef);
 
     onValue(starRef, (snapshot) => {
       this.dataFromFavorites = snapshot.val();
       console.log(this.dataFromFavorites);
-      Object.values(this.dataFromFavorites).map((data) => {
+      Object.values(this.dataFromFavorites).map((data: string) => {
         this.favoriteCity.push(data);
       });
       this.isAdded = this.favoriteCity.includes(this.nameToShow);
-      console.log(this.isAdded)
+      console.log(this.favoriteCity)
     })
 
-    console.log(this.favoriteCity)
   }
 
   ngOnInit(): void {
@@ -70,7 +72,10 @@ export class HomeComponent implements OnInit {
     this.WeatherData.maxTemperature = (data.main.temp_max - 273.15).toFixed(0);
     this.WeatherData.humidity = data.main.humidity;
     this.WeatherData.wind = data.wind.speed;
-    console.log(this.WeatherData);
+    // this.icon += data.waether[0].icon;
+    // this.icon += '@2x.png';
+    this.icon = 'http://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png';
+    console.log(this.WeatherData)
   }
 
   onLoadCityList() {
@@ -83,10 +88,11 @@ export class HomeComponent implements OnInit {
 
   removeFavorite() {
     const db = getDatabase();
-    console.log("nameToShow"+this.nameToShow);
     console.log("cityName"+this.cityName);
-    remove(ref(db, '/favorites' + this.user + '/' + this.cityName))
-    console.log("remove")
+    console.log(this.dataFromFavorites);
+    this.key = Object.keys(this.dataFromFavorites).find(key => (this.dataFromFavorites as any)[key] === this.cityName)
+    remove(ref(db, 'favorites/' + this.user + '/' + this.key));
+    console.log(ref(db, '/favorites' + this.user + '/"' + this.key + '"'))
   }
 
 }

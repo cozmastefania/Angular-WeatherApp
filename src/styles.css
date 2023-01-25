@@ -16,7 +16,8 @@
  }
 
  body {
-     background-color: var(--white);
+    background-color: rgb(125, 105, 186);
+    background-image: linear-gradient(170deg, rgba(125, 105, 186, 1) 7%, rgba(62, 150, 166, 1) 14%, rgba(12, 186, 153, 1) 21%);
      font-family: Verdana, Geneva, Tahoma, sans-serif;
 
  }

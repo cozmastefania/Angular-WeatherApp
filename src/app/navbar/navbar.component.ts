@@ -9,10 +9,15 @@ import { RegisterService } from 'src/app/services/register.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private auth: RegisterService) { }
+  isLoggedIn!:any;
+
+  constructor(private auth: RegisterService) {
+   }
 
   ngOnInit(): void {
+    this.isLoggedIn = localStorage.getItem('user');
   }
+  
 
   logOut() {
     this.auth.logoutUser();

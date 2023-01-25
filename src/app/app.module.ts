@@ -22,6 +22,7 @@ import { TabViewModule } from 'primeng/tabview';
 import { CityListComponent } from './city-list/city-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CityComponent } from './city-list/city/city.component';
+import { MoreInfoComponent } from './more-info/more-info.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { CityComponent } from './city-list/city/city.component';
     CityListComponent,
     NavbarComponent,
     CityComponent,
+    MoreInfoComponent,
   ],
   imports: [
     BrowserModule,
