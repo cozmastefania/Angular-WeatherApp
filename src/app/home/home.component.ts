@@ -89,6 +89,9 @@ export class HomeComponent implements OnInit {
     this.sunriseTime = new Date(data.sys.sunrise * 1000).getHours();
     this.sunsetTime = new Date(data.sys.sunset * 1000).getHours();
     this.currentTime = new Date().getHours();
+    this.WeatherData.humidity = data.main.humidity;
+    this.WeatherData.wind = data.wind.speed;
+    this.icon = 'http://openweathermap.org/img/wn/' + this.WeatherData.weather[0].icon + '.png';
 
     if (this.unitSystem === 'metric') {
       this.WeatherData.currentTemperature = (data.main.temp - 273.15).toFixed(
@@ -115,11 +118,11 @@ export class HomeComponent implements OnInit {
         (data.main.temp_min - 273.15) * (9 / 5) +
         32
       ).toFixed(0);
-      this.WeatherData.humidity = data.main.humidity;
-      this.WeatherData.wind = data.wind.speed;
+     
+      
     }
 
-    console.log(this.WeatherData);
+    console.log(this.icon);
   }
 
   onLoadCityList() {
