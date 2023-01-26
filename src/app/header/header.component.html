@@ -1,15 +1,18 @@
 <div class="header">
-  <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" [showClear]="true"></p-dropdown>
+  <p-dropdown
+    [options]="cities"
+    [(ngModel)]="selectedCity"
+    optionLabel="name"></p-dropdown>
 
-    <div class="header-right-block">
-        C
-        <ui-switch
-        class="header-unit-switcher"
-        size="small"
-        color="#B5B5B5"
-        [checked]="!isUnitSwitcherChecked"
-        (change)="onChangeUnitSwitcher()">
-        </ui-switch>
-        F
-    </div>
+  <div class="header-right-block">
+    C
+    <ui-switch
+      class="header-unit-switcher"
+      size="small"
+      color="#B5B5B5"
+      [checked]="!isUnitSwitcherChecked"
+      (change)="onChangeUnitSwitcher()">
+    </ui-switch>
+    F
+  </div>
 </div>

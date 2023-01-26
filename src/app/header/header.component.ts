@@ -6,8 +6,7 @@ import { Component } from '@angular/core';
 import { apiConfig, appConfig } from 'src/app/config';
 
 interface City {
-  name: string,
-  code: string
+  name: string;
 }
 
 @Component({
@@ -15,43 +14,42 @@ interface City {
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-
-
-
 export class HeaderComponent {
- @Input() currentUnitSystem: string = "";
- @Input() listOfFavorites!: Array<string>;
- @Output() changeUnit: EventEmitter<string> = new EventEmitter();
- 
+  @Input() currentUnitSystem: string = '';
+  @Input() listOfFavorites!: Array<string>;
+  @Output() changeUnit: EventEmitter<string> = new EventEmitter();
+
   isClicked!: boolean;
   isUnitSwitcherChecked = false;
-  
-  cities!: City[];
+
+  cities: City[] = [];
   selectedCity!: City;
 
   constructor() {
-     this.cities = [
-      {name: 'New York', code: 'NY'},
-      {name: 'Rome', code: 'RM'},
-      {name: 'London', code: 'LDN'},
-      {name: 'Istanbul', code: 'IST'},
-      {name: 'Paris', code: 'PRS'}
-  ];
+    this.cities = [
+      { name: 'New York'},
+      { name: 'Rome'},
+      { name: 'London'},
+      { name: 'Istanbul'},
+      { name: 'Paris'},
+    ];
   }
+  
   ngOnInit() {
     this.isUnitSwitcherChecked =
-      this.currentUnitSystem === appConfig.defaultUnit;
+    this.currentUnitSystem === appConfig.defaultUnit;
     this.isClicked = false;
-   
-
-    console.log(this.listOfFavorites);
-    this.listOfFavorites.map( (city:string) => 
-      // const obj = {name: city};
-      // console.log(obj);
-      // this.cityes.push(obj)
-      console.log(city));
     
-    // console.log(this.cityes);
+    // console.log(this.listOfFavorites);
+    this.listOfFavorites?.map(city => 
+      console.log(city)
+    //  { const obj = {name: city};
+    //   console.log(obj);
+    //   this.cities.push(obj)
+    // }
+    );
+
+    console.log(this.cities);
   }
 
   onChangeUnitSwitcher() {

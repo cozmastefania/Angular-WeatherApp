@@ -31,14 +31,15 @@ import { RegisterComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NgModule,
     ForecastComponent,
     ForecastItemComponent,
     HeaderComponent,
     HomeComponent,
     LoginComponent,
     CityListComponent,
-    
+    MoreInfoComponent,
+    NavbarComponent,
+    RegisterComponent,
   ],
   imports: [
     AngularFireAuthModule,
@@ -59,9 +60,6 @@ import { RegisterComponent } from './register/register.component';
     TabViewModule,
     ToastModule,
     UiSwitchModule,
-    CheckboxModule,
-    ChipsModule,
-    ColorPickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

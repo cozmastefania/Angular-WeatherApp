@@ -18,7 +18,7 @@ export class ForecastComponent implements OnInit, OnChanges, OnDestroy {
   };
 
   @Input() favorites!: Array<string>;
-  
+
   measureOfTemp: string = '';
   unitSystem: string = '';
 

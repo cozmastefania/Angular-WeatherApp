@@ -1,12 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {
+  AngularFireDatabase,
+  AngularFireList,
+} from '@angular/fire/compat/database';
 import { Router } from '@angular/router';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import {Database, remove, ref, onValue, getDatabase, DataSnapshot} from 'firebase/database';
-import { ForecastService } from 'src/app/services/forecast.service';
-import { RegisterService } from '../services/register.service';
+import { getDatabase, onValue, ref, remove } from 'firebase/database';
 import { apiConfig } from 'src/app/config';
 import { WeatherService } from 'src/app/services/weather.service';
+import { RegisterService } from '../services/register.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -20,7 +21,7 @@ export class HomeComponent implements OnInit {
   currentTime!: number;
   sunriseTime!: number;
   sunsetTime!: number;
-  wind!:number;
+  wind!: number;
   icon!: string;
 
   cityName: string = 'Cluj';
@@ -33,7 +34,6 @@ export class HomeComponent implements OnInit {
   dataFromFavorites!: object;
   favoriteCity: Array<string> = [];
   key!: any;
-  // favoriteCity: Object;
 
   constructor(
     private auth: RegisterService,
@@ -81,8 +81,7 @@ export class HomeComponent implements OnInit {
         '&appid=5fe302f14d5bd84b4b60562300f00762'
     )
       .then(response => response.json())
-      .then(data => 
-        this.setWeatherData(data));
+      .then(data => this.setWeatherData(data));
   }
 
   setWeatherData(data: any) {
@@ -92,7 +91,10 @@ export class HomeComponent implements OnInit {
     this.currentTime = new Date().getHours();
     this.WeatherData.humidity = data.main.humidity;
     this.wind = data.wind.speed;
-    this.icon = 'http://openweathermap.org/img/wn/' + this.WeatherData.weather[0].icon + '.png';
+    this.icon =
+      'http://openweathermap.org/img/wn/' +
+      this.WeatherData.weather[0].icon +
+      '.png';
 
     if (this.unitSystem === 'metric') {
       this.WeatherData.currentTemperature = (data.main.temp - 273.15).toFixed(
@@ -119,8 +121,6 @@ export class HomeComponent implements OnInit {
         (data.main.temp_min - 273.15) * (9 / 5) +
         32
       ).toFixed(0);
-     
-      
     }
 
     // console.log(data);
