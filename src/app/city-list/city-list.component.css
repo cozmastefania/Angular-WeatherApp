@@ -16,3 +16,11 @@
   color: #fff;
   cursor: pointer;
 }
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  margin: 4em auto auto auto;
+}

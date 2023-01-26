@@ -6,11 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./city-list.component.css']
 })
 export class CityListComponent implements OnInit {
-  cityList = ["Cluj", "Oradea", "Bucuresti", "Timisoara"];
+  cityList = ["Cluj", "Oradea", "Bucuresti", "Timisoara"];  
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }
