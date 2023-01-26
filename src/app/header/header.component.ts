@@ -13,7 +13,7 @@ interface City {
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 
 
@@ -39,7 +39,8 @@ export class HeaderComponent {
   ];
   }
   ngOnInit() {
-    this.isUnitSwitcherChecked = this.currentUnitSystem === appConfig.defaultUnit;
+    this.isUnitSwitcherChecked =
+      this.currentUnitSystem === appConfig.defaultUnit;
     this.isClicked = false;
    
 
@@ -53,7 +54,7 @@ export class HeaderComponent {
     // console.log(this.cityes);
   }
 
-   onChangeUnitSwitcher() {
+  onChangeUnitSwitcher() {
     const unitSystems = Object.keys(apiConfig.measurementUnits);
     const unitIndex = this.isUnitSwitcherChecked ? 1 : 0;
 

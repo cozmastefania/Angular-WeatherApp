@@ -10,40 +10,30 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UiSwitchModule } from 'ngx-ui-switch';
 import { ButtonModule } from 'primeng/button';
-import { CalendarModule } from 'primeng/calendar';
 import { CarouselModule } from 'primeng/carousel';
-import { InputSwitchModule } from 'primeng/inputswitch';
+import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
-import { RadioButtonModule } from 'primeng/radiobutton';
 import { TabViewModule } from 'primeng/tabview';
 import { ToastModule } from 'primeng/toast';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CityListComponent } from './city-list/city-list.component';
 import { environment } from './environments/environment';
 import { ForecastItemComponent } from './forecast/forecast-item/forecast-item.component';
 import { ForecastComponent } from './forecast/forecast.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { MoreInfoComponent } from './more-info/more-info.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
-import { CheckboxModule } from 'primeng/checkbox';
-import { ChipsModule } from 'primeng/chips';
-import { ColorPickerModule } from 'primeng/colorpicker';
-import { MoreInfoComponent } from './more-info/more-info.component';
-import { CityListComponent } from './city-list/city-list.component';
-import {DropdownModule} from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
     AppComponent,
-    // NgModule,
+    NgModule,
     ForecastComponent,
     ForecastItemComponent,
-    ForecastComponent,
-    NavbarComponent,
-    RegisterComponent,
-    MoreInfoComponent,
     HeaderComponent,
     HomeComponent,
     LoginComponent,
@@ -60,13 +50,11 @@ import {DropdownModule} from 'primeng/dropdown';
     BrowserAnimationsModule,
     BrowserModule,
     ButtonModule,
-    CalendarModule,
     CarouselModule,
+    DropdownModule,
     FormsModule,
     HttpClientModule,
-    InputSwitchModule,
     InputTextModule,
-    RadioButtonModule,
     ReactiveFormsModule,
     TabViewModule,
     ToastModule,
@@ -74,7 +62,6 @@ import {DropdownModule} from 'primeng/dropdown';
     CheckboxModule,
     ChipsModule,
     ColorPickerModule,
-    DropdownModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
