@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-more-info',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./more-info.component.css']
 })
 export class MoreInfoComponent implements OnInit {
+  @Input()weatherData: any;
 
   constructor() { }
 

@@ -1,1 +1,38 @@
-<p>more-info works!</p>
+<div class="more-info-container">
+    <h2> Today's highlights </h2>
+    <div class="info-block">
+      <div class="info-block-label">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABXklEQVR4nO2ZXUrDQBSFz4txBXn0WfBnWS6nYlDaXpcQCi7AH1xBBimSgQnuQMH0VbmSRGgsRNtU6JlOP7gQyMv5Zg6TgQA7toypcwfGuklmi7KevLh5yl8O4Uv4zLpXYwttT2bdW/UO7BjrJovhW5OCncwWZadAXryDHdO9+vVgawRE9cewEI4AKyYYAfG9QuK7ACsmGAHxvULiuwArxncBLFajoyrx2aO2BzSEIsCLBCIQ+16h2HcBXiQQgdj3CsW+C/Aivgokug/R4Z8ColdINQJh+Iclwjcz1nsuCdHR0uHnEpegQPQUop89BD5wrccMAsnK4ecS5wwCz70FRKcMArM1dqDcdHzUIfrvAMEPD+8rNNaLNQQGm44PDPWkPhL7HKMjPQIF1fVg9dVPQEOqEUTvVlj9W4jugYpUo/p68FudmncJX/g21fWg+sJWJ0zzjZh9Pw94Or8D/8oX+ONXwduxFWoAAAAASUVORK5CYII=">
+        <span>min</span>
+      </div>
+      <div class="info-block-value">
+        {{ weatherData?.minTemperature }}° C
+      </div>
+    </div>
+
+    <div class="info-block">
+      <div class="info-block-label">
+        <img src="https://img.icons8.com/color/48/null/thermometer.png"/>
+        <span>max</span>
+      </div>
+      <div class="info-block-value">
+        {{ weatherData?.maxTemperature }}° C
+      </div>
+    </div>
+
+    <div class="info-block">
+      <div class="info-block-label">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC1ElEQVR4nN2a24tNURzHPy5J3mRcRrk0MRKlvLnME0+SEC+eUCMlDx5GpJgkD0pePIzLw6iDkMGD3Mk/IJHcEh5EFLkNzRyWfvqe6ZzTGbP3nrX2OuNbv8609m9dPmev3zprrd9Adk0DPgEXCCeXwjJpOHCnrJENDFGQ7ar8TZ+fgenEkcsK0gz8UOXVQJf+vsoQAhkG3FLFgsoagY8qW8cQAdmkSu+B8WXl61X+oaq8LkEatUpZpbU1nt/Us07qHOS8Klzr5/lM4Kd8llKnIMvlbEE+4x9+++X3DBhFGLmsy68N6Kmcdw/gOwZ4Kd826gxkpxyfA6MT+K+S/xfFVWi5JCCTga9yXJai8euqc5w6ATkqp7spG58H/AKKwBwigzQDvcBvYEGGDs6oA/vljwpyVg42oCyy5bhHbWT5IryAzNeb6NGAsqpDndi2JgpIlx4eHmQnjWU75IXkvPzOVqB2A5M8dHxAHV0iZ5BOT2+jpInaEdhUnYt/uVogUxUXtlo1eezsmDo7QU4g+1R4ynNns/RGbFPZEBpkJPBGhYvwrxtqe1tokJUqeEQYrVH7j3XSDAZyWQVbCKPyN94SCqRBAe5yso6Ug3QJrOIsnpe9A0aEALmSM4jZ4rRzqB/1gdgJ8HsEkD14BmmJAGF22zfIjkgg3QnjJDFIIRKIG+BGJjXIvYggK3yCvI0I0jqIgbsq+ztXY4G0+QTpjQiyKwNItfpASimBGLYVjyD3/5dgL0QEafIJ0hoJ4pUHiAqQCZEC/iCeQUzncoYo6topi1w/VnHPmxeI3aoQAsR0JCcI+wGegj+5apCxSpmFBrHTKCFBSvdPpcxtCDuEf7laIKYl+pcM3xAndZOSG0gp+J94ArAbxnbPd1mJQUzjtLoUBwHxMIecuxsIpCTLAV5MCfQC2OjhKOtSWGJZhnczcBp4oF2zTRvL+r5WJnevEjq+plFikD+r19dDU9BsQwAAAABJRU5ErkJggg==">
+        <span>humidity</span>
+      </div>
+      <div class="info-block-value">{{ weatherData?.humidity }} %</div>
+    </div>
+    <!-- #0A69CE -->
+    <div class="info-block">
+      <div class="info-block-label">
+        <img src="https://img.icons8.com/ios/50/null/wind--v1.png"/>
+        <span>wind</span>
+      </div>
+      <div class="info-block-value">{{ weatherData?.wind }} km/h</div>
+    </div>
+  </div>

@@ -8,13 +8,12 @@
             class="input-field"
             type="text"
             name="cityName"
-            [(ngModel)]="cityName"
-          />
-            <button class="search-button" (click)="getWeatherData(cityName)">
-              Search
-            </button>
+            [(ngModel)]="cityName" />
+          <button class="search-button" (click)="getWeatherData(cityName)">
+            Search
+          </button>
         </form>
-        
+
         <div class="location">
           {{ nameToShow }}
           <div *ngIf="isLoggedIn" class="favorites">
@@ -25,11 +24,9 @@
               class="addFav"
               height="25px"
               width="25px"
-              viewBox="0 0 576 512"
-            >
+              viewBox="0 0 576 512">
               <path
-                d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9l2.6-2.4C267.2 438.6 256 404.6 256 368c0-97.2 78.8-176 176-176c28.3 0 55 6.7 78.7 18.5c.9-6.5 1.3-13 1.3-19.6v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5zM432 512c79.5 0 144-64.5 144-144s-64.5-144-144-144s-144 64.5-144 144s64.5 144 144 144zm16-208v48h48c8.8 0 16 7.2 16 16s-7.2 16-16 16H448v48c0 8.8-7.2 16-16 16s-16-7.2-16-16V384H368c-8.8 0-16-7.2-16-16s7.2-16 16-16h48V304c0-8.8 7.2-16 16-16s16 7.2 16 16z"
-              />
+                d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9l2.6-2.4C267.2 438.6 256 404.6 256 368c0-97.2 78.8-176 176-176c28.3 0 55 6.7 78.7 18.5c.9-6.5 1.3-13 1.3-19.6v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5zM432 512c79.5 0 144-64.5 144-144s-64.5-144-144-144s-144 64.5-144 144s64.5 144 144 144zm16-208v48h48c8.8 0 16 7.2 16 16s-7.2 16-16 16H448v48c0 8.8-7.2 16-16 16s-16-7.2-16-16V384H368c-8.8 0-16-7.2-16-16s7.2-16 16-16h48V304c0-8.8 7.2-16 16-16s16 7.2 16 16z" />
             </svg>
             <svg
               *ngIf="isAdded"
@@ -38,16 +35,14 @@
               class="removeFav"
               height="25px"
               width="25px"
-              viewBox="0 0 576 512"
-            >
+              viewBox="0 0 576 512">
               <path
-                d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9l2.6-2.4C267.2 438.6 256 404.6 256 368c0-97.2 78.8-176 176-176c28.3 0 55 6.7 78.7 18.5c.9-6.5 1.3-13 1.3-19.6v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5zM576 368c0-79.5-64.5-144-144-144s-144 64.5-144 144s64.5 144 144 144s144-64.5 144-144zm-64 0c0 8.8-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16H496c8.8 0 16 7.2 16 16z"
-              />
+                d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9l2.6-2.4C267.2 438.6 256 404.6 256 368c0-97.2 78.8-176 176-176c28.3 0 55 6.7 78.7 18.5c.9-6.5 1.3-13 1.3-19.6v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5zM576 368c0-79.5-64.5-144-144-144s-144 64.5-144 144s64.5 144 144 144s144-64.5 144-144zm-64 0c0 8.8-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16H496c8.8 0 16 7.2 16 16z" />
             </svg>
           </div>
         </div>
         <div class="temperature">{{ WeatherData?.currentTemperature }}° C</div>
-        <img src="{{icon}}">
+        <img src="{{ icon }}" />
       </div>
     </div>
     <div class="lower-data">
@@ -56,46 +51,8 @@
     </div>
   </div>
 
- 
-    <div class="right-container">
-      <app-forecast [coord]="WeatherData?.coord"></app-forecast>
-  <div class="more-info-container">
-    <h2> Today's highlights </h2>
-    <div class="info-block">
-      <div class="info-block-label">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABXklEQVR4nO2ZXUrDQBSFz4txBXn0WfBnWS6nYlDaXpcQCi7AH1xBBimSgQnuQMH0VbmSRGgsRNtU6JlOP7gQyMv5Zg6TgQA7toypcwfGuklmi7KevLh5yl8O4Uv4zLpXYwttT2bdW/UO7BjrJovhW5OCncwWZadAXryDHdO9+vVgawRE9cewEI4AKyYYAfG9QuK7ACsmGAHxvULiuwArxncBLFajoyrx2aO2BzSEIsCLBCIQ+16h2HcBXiQQgdj3CsW+C/Aivgokug/R4Z8ColdINQJh+Iclwjcz1nsuCdHR0uHnEpegQPQUop89BD5wrccMAsnK4ecS5wwCz70FRKcMArM1dqDcdHzUIfrvAMEPD+8rNNaLNQQGm44PDPWkPhL7HKMjPQIF1fVg9dVPQEOqEUTvVlj9W4jugYpUo/p68FudmncJX/g21fWg+sJWJ0zzjZh9Pw94Or8D/8oX+ONXwduxFWoAAAAASUVORK5CYII=">
-        <span>min</span>
-      </div>
-      <div class="info-block-value">
-        {{ WeatherData?.minTemperature }}° C
-      </div>
-    </div>
-
-    <div class="info-block">
-      <div class="info-block-label">
-        <img src="https://img.icons8.com/color/48/null/thermometer.png"/>
-        <span>max</span>
-      </div>
-      <div class="info-block-value">
-        {{ WeatherData?.maxTemperature }}° C
-      </div>
-    </div>
-
-    <div class="info-block">
-      <div class="info-block-label">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC1ElEQVR4nN2a24tNURzHPy5J3mRcRrk0MRKlvLnME0+SEC+eUCMlDx5GpJgkD0pePIzLw6iDkMGD3Mk/IJHcEh5EFLkNzRyWfvqe6ZzTGbP3nrX2OuNbv8609m9dPmev3zprrd9Adk0DPgEXCCeXwjJpOHCnrJENDFGQ7ar8TZ+fgenEkcsK0gz8UOXVQJf+vsoQAhkG3FLFgsoagY8qW8cQAdmkSu+B8WXl61X+oaq8LkEatUpZpbU1nt/Us07qHOS8Klzr5/lM4Kd8llKnIMvlbEE+4x9+++X3DBhFGLmsy68N6Kmcdw/gOwZ4Kd826gxkpxyfA6MT+K+S/xfFVWi5JCCTga9yXJai8euqc5w6ATkqp7spG58H/AKKwBwigzQDvcBvYEGGDs6oA/vljwpyVg42oCyy5bhHbWT5IryAzNeb6NGAsqpDndi2JgpIlx4eHmQnjWU75IXkvPzOVqB2A5M8dHxAHV0iZ5BOT2+jpInaEdhUnYt/uVogUxUXtlo1eezsmDo7QU4g+1R4ynNns/RGbFPZEBpkJPBGhYvwrxtqe1tokJUqeEQYrVH7j3XSDAZyWQVbCKPyN94SCqRBAe5yso6Ug3QJrOIsnpe9A0aEALmSM4jZ4rRzqB/1gdgJ8HsEkD14BmmJAGF22zfIjkgg3QnjJDFIIRKIG+BGJjXIvYggK3yCvI0I0jqIgbsq+ztXY4G0+QTpjQiyKwNItfpASimBGLYVjyD3/5dgL0QEafIJ0hoJ4pUHiAqQCZEC/iCeQUzncoYo6topi1w/VnHPmxeI3aoQAsR0JCcI+wGegj+5apCxSpmFBrHTKCFBSvdPpcxtCDuEf7laIKYl+pcM3xAndZOSG0gp+J94ArAbxnbPd1mJQUzjtLoUBwHxMIecuxsIpCTLAV5MCfQC2OjhKOtSWGJZhnczcBp4oF2zTRvL+r5WJnevEjq+plFikD+r19dDU9BsQwAAAABJRU5ErkJggg==">
-        <span>humidity</span>
-      </div>
-      <div class="info-block-value">{{ WeatherData?.humidity }} %</div>
-    </div>
-    <!-- #0A69CE -->
-    <div class="info-block">
-      <div class="info-block-label">
-        <img src="https://img.icons8.com/ios/50/null/wind--v1.png"/>
-        <span>wind</span>
-      </div>
-      <div class="info-block-value">{{ WeatherData?.wind }} km/h</div>
-    </div>
+  <div class="right-container">
+    <app-forecast [coord]="WeatherData?.coord"></app-forecast>
+    <app-more-info [weatherData]="WeatherData"></app-more-info>
   </div>
-</div>
 </div>
