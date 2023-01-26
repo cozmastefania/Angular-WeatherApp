@@ -41,7 +41,7 @@
             </svg>
           </div>
         </div>
-        <div class="temperature">{{ WeatherData?.currentTemperature }}° C</div>
+        <div class="temperature">{{ WeatherData?.currentTemperature }}° {{measureOfTemp}}</div>
         <img src="{{ icon }}" />
       </div>
     </div>
@@ -53,6 +53,6 @@
 
   <div class="right-container">
     <app-forecast [coord]="WeatherData?.coord"></app-forecast>
-    <app-more-info [weatherData]="WeatherData"></app-more-info>
+    <app-more-info [weatherData]="WeatherData" [measureOfTemp]="measureOfTemp"></app-more-info>
   </div>
 </div>

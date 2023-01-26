@@ -10,11 +10,11 @@ import { WeatherService } from 'src/app/services/weather.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  measureOfTemp: string = "";
-  unitSystem: string = "";
+  measureOfTemp: string = '';
+  unitSystem: string = '';
 
   WeatherData: any;
   currentTime!: number;
@@ -31,30 +31,38 @@ export class HomeComponent implements OnInit {
   user!: any;
   dataFromFavorites!: object;
   favoriteCity: Array<string> = [];
-  key!:any;
+  key!: any;
   // favoriteCity: Object;
 
-  constructor(private auth: RegisterService, public firedb: AngularFireDatabase, private router: Router, private weatherService: WeatherService) {
+  constructor(
+    private auth: RegisterService,
+    public firedb: AngularFireDatabase,
+    private router: Router,
+    private weatherService: WeatherService
+  ) {
     this.isLoggedIn = localStorage.getItem('user');
 
     this.user = this.auth.getUserLoggedIn();
     const db = getDatabase();
     const starRef = ref(db, 'favorites/' + this.user);
 
-    onValue(starRef, (snapshot) => {
+    onValue(starRef, snapshot => {
       this.dataFromFavorites = snapshot.val();
       console.log(this.dataFromFavorites);
       Object.values(this.dataFromFavorites).map((data: string) => {
         this.favoriteCity.push(data);
       });
       this.isAdded = this.favoriteCity.includes(this.nameToShow);
-      console.log(this.favoriteCity)
-    })
+      console.log(this.favoriteCity);
+    });
   }
 
   ngOnInit(): void {
     this.unitSystem = this.weatherService.getUnitSystem();
-    const measurementUnits = this.unitSystem === "metric" ? apiConfig.measurementUnits.metric : apiConfig.measurementUnits.imperial;
+    const measurementUnits =
+      this.unitSystem === 'metric'
+        ? apiConfig.measurementUnits.metric
+        : apiConfig.measurementUnits.imperial;
 
     this.measureOfTemp = measurementUnits.temperature;
     this.getWeatherData('Cluj');
@@ -67,7 +75,11 @@ export class HomeComponent implements OnInit {
   getWeatherData(cityName: any) {
     this.nameToShow = cityName;
     this.isAdded = this.favoriteCity.includes(this.nameToShow);
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=5fe302f14d5bd84b4b60562300f00762')
+    fetch(
+      'https://api.openweathermap.org/data/2.5/weather?q=' +
+        cityName +
+        '&appid=5fe302f14d5bd84b4b60562300f00762'
+    )
       .then(response => response.json())
       .then(data => this.setWeatherData(data));
   }
@@ -78,20 +90,35 @@ export class HomeComponent implements OnInit {
     this.sunsetTime = new Date(data.sys.sunset * 1000).getHours();
     this.currentTime = new Date().getHours();
 
-    if(this.unitSystem === 'metric') {
-      this.WeatherData.currentTemperature = (data.main.temp - 273.15).toFixed(0);
-      this.WeatherData.minTemperature = (data.main.temp_min - 273.15).toFixed(0);
-      this.WeatherData.maxTemperature = (data.main.temp_max - 273.15).toFixed(0);
+    if (this.unitSystem === 'metric') {
+      this.WeatherData.currentTemperature = (data.main.temp - 273.15).toFixed(
+        0
+      );
+      this.WeatherData.minTemperature = (data.main.temp_min - 273.15).toFixed(
+        0
+      );
+      this.WeatherData.maxTemperature = (data.main.temp_max - 273.15).toFixed(
+        0
+      );
       this.WeatherData.humidity = data.main.humidity;
       this.WeatherData.wind = data.wind.speed;
     } else {
-       this.WeatherData.currentTemperature = ((data.main.temp - 273.15) * (9/5) + 32).toFixed(0);
-      this.WeatherData.minTemperature = ((data.main.temp_max - 273.15) * (9/5) + 32).toFixed(0);
-      this.WeatherData.maxTemperature = ((data.main.temp_min - 273.15) * (9/5) + 32).toFixed(0);
+      this.WeatherData.currentTemperature = (
+        (data.main.temp - 273.15) * (9 / 5) +
+        32
+      ).toFixed(0);
+      this.WeatherData.minTemperature = (
+        (data.main.temp_max - 273.15) * (9 / 5) +
+        32
+      ).toFixed(0);
+      this.WeatherData.maxTemperature = (
+        (data.main.temp_min - 273.15) * (9 / 5) +
+        32
+      ).toFixed(0);
       this.WeatherData.humidity = data.main.humidity;
       this.WeatherData.wind = data.wind.speed;
     }
-    
+
     console.log(this.WeatherData);
   }
 
@@ -105,11 +132,12 @@ export class HomeComponent implements OnInit {
 
   removeFavorite() {
     const db = getDatabase();
-    console.log("cityName"+this.cityName);
+    console.log('cityName' + this.cityName);
     console.log(this.dataFromFavorites);
-    this.key = Object.keys(this.dataFromFavorites).find(key => (this.dataFromFavorites as any)[key] === this.cityName)
+    this.key = Object.keys(this.dataFromFavorites).find(
+      key => (this.dataFromFavorites as any)[key] === this.cityName
+    );
     remove(ref(db, 'favorites/' + this.user + '/' + this.key));
-    console.log(ref(db, '/favorites' + this.user + '/"' + this.key + '"'))
+    console.log(ref(db, '/favorites' + this.user + '/"' + this.key + '"'));
   }
-
 }
