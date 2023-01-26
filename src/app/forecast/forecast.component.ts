@@ -8,7 +8,7 @@ import { WeatherService } from 'src/app/services/weather.service';
 @Component({
   selector: 'app-forecast',
   templateUrl: './forecast.component.html',
-  styleUrls: ['./forecast.component.css']
+  styleUrls: ['./forecast.component.css'],
 })
 export class ForecastComponent implements OnInit, OnChanges, OnDestroy {
   @Input()
@@ -16,9 +16,9 @@ export class ForecastComponent implements OnInit, OnChanges, OnDestroy {
     lon: number;
     lat: number;
   };
-  measureOfTemp: string = "";
-  unitSystem: string = "";
-  
+  measureOfTemp: string = '';
+  unitSystem: string = '';
+
   forecastList: any[] = [];
   forecastSub!: Subscription;
 
@@ -29,16 +29,20 @@ export class ForecastComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnInit() {
     this.unitSystem = this.weatherService.getUnitSystem();
-    const measurementUnits = this.unitSystem === "metric" ? apiConfig.measurementUnits.metric : apiConfig.measurementUnits.imperial;
+    const measurementUnits =
+      this.unitSystem === 'metric'
+        ? apiConfig.measurementUnits.metric
+        : apiConfig.measurementUnits.imperial;
 
     this.measureOfTemp = measurementUnits.temperature;
   }
 
   ngOnChanges(): void {
-    this.forecastSub = this.forecastService.getForecastByCity(this.coord.lon, this.coord.lat)
+    this.forecastSub = this.forecastService
+      .getForecastByCity(this.coord.lon, this.coord.lat)
       .subscribe(data => {
         this.forecastList = data.list;
-      })
+      });
   }
 
   changeUnit(unitSystem: string) {
@@ -48,5 +52,4 @@ export class ForecastComponent implements OnInit, OnChanges, OnDestroy {
   ngOnDestroy(): void {
     this.forecastSub.unsubscribe();
   }
-
 }

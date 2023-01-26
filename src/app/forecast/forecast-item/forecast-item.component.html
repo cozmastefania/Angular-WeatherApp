@@ -1,10 +1,10 @@
 <div class="forecast-item">
   <div class="forecast-item-content">
     <div>
-        <div class="forecast-date">
+      <div class="forecast-date">
         <p>{{ date }}</p>
       </div>
-       <div class="forecast-icon" *ngIf="forecast.weather[0].main === 'Clouds'">
+      <div class="forecast-icon" *ngIf="forecast.weather[0].main === 'Clouds'">
         <div *ngIf="forecast.weather[0].description === 'few clouds'">
           <img src="http://openweathermap.org/img/wn/02d@2x.png" alt="cloudy" />
           <!-- <p>{{ forecast.weather[0].description }}</p> -->
@@ -160,8 +160,7 @@
         <div
           *ngIf="
             forecast.weather[0].description === 'light intensity shower rain'
-          "
-        >
+          ">
           <img src="http://openweathermap.org/img/wn/09d@2x.png" alt="cloudy" />
           <!-- <p>{{ forecast.weather[0].description }}</p> -->
         </div>
@@ -172,8 +171,7 @@
         <div
           *ngIf="
             forecast.weather[0].description === 'heavy intensity shower rain'
-          "
-        >
+          ">
           <img src="http://openweathermap.org/img/wn/09d@2x.png" alt="cloudy" />
           <!-- <p>{{ forecast.weather[0].description }}</p> -->
         </div>
@@ -184,8 +182,7 @@
       </div>
       <div class="forecast-icon" *ngIf="forecast.weather[0].main === 'Drizzle'">
         <div
-          *ngIf="forecast.weather[0].description === 'light intensity drizzle'"
-        >
+          *ngIf="forecast.weather[0].description === 'light intensity drizzle'">
           <img src="http://openweathermap.org/img/wn/09d@2x.png" alt="cloudy" />
           <!-- <p>{{ forecast.weather[0].description }}</p> -->
         </div>
@@ -194,16 +191,14 @@
           <!-- <p>{{ forecast.weather[0].description }}</p> -->
         </div>
         <div
-          *ngIf="forecast.weather[0].description === 'heavy intensity drizzle'"
-        >
+          *ngIf="forecast.weather[0].description === 'heavy intensity drizzle'">
           <img src="http://openweathermap.org/img/wn/09d@2x.png" alt="cloudy" />
           <!-- <p>{{ forecast.weather[0].description }}</p> -->
         </div>
         <div
           *ngIf="
             forecast.weather[0].description === 'light intensity drizzle rain'
-          "
-        >
+          ">
           <img src="http://openweathermap.org/img/wn/09d@2x.png" alt="cloudy" />
           <!-- <p>{{ forecast.weather[0].description }}</p> -->
         </div>
@@ -214,22 +209,19 @@
         <div
           *ngIf="
             forecast.weather[0].description === 'heavy intensity drizzle rain'
-          "
-        >
+          ">
           <img src="http://openweathermap.org/img/wn/09d@2x.png" alt="cloudy" />
           <!-- <p>{{ forecast.weather[0].description }}</p> -->
         </div>
         <div
-          *ngIf="forecast.weather[0].description === 'shower rain and drizzle'"
-        >
+          *ngIf="forecast.weather[0].description === 'shower rain and drizzle'">
           <img src="http://openweathermap.org/img/wn/09d@2x.png" alt="cloudy" />
           <!-- <p>{{ forecast.weather[0].description }}</p> -->
         </div>
         <div
           *ngIf="
             forecast.weather[0].description === 'heavy shower rain and drizzle'
-          "
-        >
+          ">
           <img src="http://openweathermap.org/img/wn/09d@2x.png" alt="cloudy" />
           <!-- <p>{{ forecast.weather[0].description }}</p> -->
         </div>
@@ -240,27 +232,23 @@
       </div>
       <div
         class="forecast-icon"
-        *ngIf="forecast.weather[0].main === 'Thunderstorm'"
-      >
+        *ngIf="forecast.weather[0].main === 'Thunderstorm'">
         <div
           *ngIf="
             forecast.weather[0].description === 'thunderstorm with light rain'
-          "
-        >
+          ">
           <img src="http://openweathermap.org/img/wn/11d@2x.png" alt="cloudy" />
           <!-- <p>{{ forecast.weather[0].description }}</p> -->
         </div>
         <div
-          *ngIf="forecast.weather[0].description === 'thunderstorm with rain'"
-        >
+          *ngIf="forecast.weather[0].description === 'thunderstorm with rain'">
           <img src="http://openweathermap.org/img/wn/11d@2x.png" alt="cloudy" />
           <!-- <p>{{ forecast.weather[0].description }}</p> -->
         </div>
         <div
           *ngIf="
             forecast.weather[0].description === 'thunderstorm with heavy rain'
-          "
-        >
+          ">
           <img src="http://openweathermap.org/img/wn/11d@2x.png" alt="cloudy" />
           <!-- <p>{{ forecast.weather[0].description }}</p> -->
         </div>
@@ -284,16 +272,14 @@
           *ngIf="
             forecast.weather[0].description ===
             'thunderstorm with light drizzle'
-          "
-        >
+          ">
           <img src="http://openweathermap.org/img/wn/11d@2x.png" alt="cloudy" />
           <!-- <p>{{ forecast.weather[0].description }}</p> -->
         </div>
         <div
           *ngIf="
             forecast.weather[0].description === 'thunderstorm with drizzle'
-          "
-        >
+          ">
           <img src="http://openweathermap.org/img/wn/11d@2x.png" alt="cloudy" />
           <!-- <p>{{ forecast.weather[0].description }}</p> -->
         </div>
@@ -301,16 +287,13 @@
           *ngIf="
             forecast.weather[0].description ===
             'thunderstorm with heavy drizzle'
-          "
-        >
+          ">
           <img src="http://openweathermap.org/img/wn/11d@2x.png" alt="cloudy" />
           <!-- <p>{{ forecast.weather[0].description }}</p> -->
         </div>
       </div>
       <div class="forecast-temp">
-        <p>
-          {{ temp }}° {{measureOfTemp}}
-        </p>
+        <p>{{ temp }}° {{ measureOfTemp }}</p>
       </div>
       <div class="forecast-time">
         <p>{{ time }}</p>

@@ -84,7 +84,7 @@
   font-size: 1em;
   border-radius: 3px;
   margin-top: 10px;
-  border: 1.5px solid  rgba(62, 150, 166, 1); 
+  border: 1.5px solid rgba(62, 150, 166, 1);
   color: black;
 }
 
@@ -97,16 +97,6 @@
   background-image: linear-gradient(170deg, rgba(125, 105, 186, 1) 7%, rgba(62, 150, 166, 1) 14%, rgba(12, 186, 153, 1) 21%);
   padding: 5px;
   margin-top: 10px;
-}
-
-.city-list {
-  color: white;
-  font-size: 1em;
-  font-weight: 600;
-  border-radius: 5px;
-  border-color: #FFF;
-  background-color: rgba(0, 0, 0, 0.3);
-  padding: 5px;
 }
 
 button:hover {
@@ -136,12 +126,12 @@ button:hover {
 
 .addFav {
   margin-left: 10px;
-  fill:rgb(209, 6, 6);
+  fill: rgb(209, 6, 6);
 }
 
 .removeFav {
   margin-left: 10px;
-  fill:rgb(178, 178, 178);
+  fill: rgb(178, 178, 178);
 }
 
 .temperature {
@@ -149,75 +139,4 @@ button:hover {
   font-size: 2em;
   text-align: center;
   font-weight: 900;
-}
-
-.more-info-label {
-  color: black;
-  font-size: 1em;
-  text-align: center;
-  
-}
-
-.more-info-container {
-  height: 50%;
-  flex: 1;
-  background-color: var(--shadow-light);
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  /* margin-top: 1em; */
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.more-info-container h2 {
-  width: 100%;
-  height: 8%;
-  padding: 0;
-  margin: 0 2.5em;
-  font-family: 'Nunito', sans-serif;
-  background-color: rgb(125, 105, 186);
-  background-image: linear-gradient(170deg, rgba(125, 105, 186, 1) 7%, rgba(62, 150, 166, 1) 14%, rgba(12, 186, 153, 1) 21%);
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-
-.info-block {
-  font-size: 1.28em;
-  background-color: white;
-  border-radius: 5px;
-  padding: 0;
-  margin: -10px 60px 20px 70px;
-  width: 30%;
-  display: flex;
-  flex-direction: row;
-  height: 25%;
-}
-
-.info-block-label {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.info-block-label img {
-  width: 3em;
-  height: 3em;
-}
-
-.info-block-label span {
-  color: black;
-  font-size: 1em;
-}
-
-.info-block-value {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  color: black;
 }

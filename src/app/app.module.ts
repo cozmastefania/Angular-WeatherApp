@@ -1,64 +1,76 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { HomeComponent } from './home/home.component';
+import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UiSwitchModule } from 'ngx-ui-switch';
+import { ButtonModule } from 'primeng/button';
+import { CalendarModule } from 'primeng/calendar';
+import { CarouselModule } from 'primeng/carousel';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { InputTextModule } from 'primeng/inputtext';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { TabViewModule } from 'primeng/tabview';
+import { ToastModule } from 'primeng/toast';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { environment } from './environments/environment';
 import { ForecastItemComponent } from './forecast/forecast-item/forecast-item.component';
 import { ForecastComponent } from './forecast/forecast.component';
-import { CarouselModule } from 'primeng/carousel';
-import { ButtonModule } from 'primeng/button';
-import { ToastModule } from 'primeng/toast';
-import { TabViewModule } from 'primeng/tabview';
-import { CityListComponent } from './city-list/city-list.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { CityComponent } from './city-list/city/city.component';
 import { HeaderComponent } from './header/header.component';
-import { UiSwitchModule } from 'ngx-ui-switch';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { RegisterComponent } from './register/register.component';
+import { CheckboxModule } from 'primeng/checkbox';
+import { ChipsModule } from 'primeng/chips';
+import { ColorPickerModule } from 'primeng/colorpicker';
 import { MoreInfoComponent } from './more-info/more-info.component';
-
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent,
-    HomeComponent,
+    ForecastComponent,
     ForecastItemComponent,
     ForecastComponent,
-    CityListComponent,
     NavbarComponent,
-    CityComponent,
-    HeaderComponent,
+    RegisterComponent,
     MoreInfoComponent,
+    HeaderComponent,
+    HomeComponent,
+    LoginComponent,
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    CarouselModule,
-    ButtonModule,
-    ToastModule,
-    TabViewModule,
-    FormsModule,
-    ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFirestoreModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule,
-    AngularFireDatabaseModule, 
-    UiSwitchModule
+    AngularFirestoreModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+    ButtonModule,
+    CalendarModule,
+    CarouselModule,
+    FormsModule,
+    HttpClientModule,
+    InputSwitchModule,
+    InputTextModule,
+    RadioButtonModule,
+    ReactiveFormsModule,
+    TabViewModule,
+    ToastModule,
+    UiSwitchModule,
+    CheckboxModule,
+    ChipsModule,
+    ColorPickerModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
