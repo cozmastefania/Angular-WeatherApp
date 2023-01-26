@@ -37,7 +37,7 @@ import {DropdownModule} from 'primeng/dropdown';
 @NgModule({
   declarations: [
     AppComponent,
-    NgModule,
+    // NgModule,
     ForecastComponent,
     ForecastItemComponent,
     ForecastComponent,
@@ -48,7 +48,7 @@ import {DropdownModule} from 'primeng/dropdown';
     HomeComponent,
     LoginComponent,
     CityListComponent,
-    DropdownModule,
+    
   ],
   imports: [
     AngularFireAuthModule,
@@ -74,6 +74,7 @@ import {DropdownModule} from 'primeng/dropdown';
     CheckboxModule,
     ChipsModule,
     ColorPickerModule,
+    DropdownModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
