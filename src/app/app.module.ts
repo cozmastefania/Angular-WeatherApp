@@ -31,6 +31,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { ChipsModule } from 'primeng/chips';
 import { ColorPickerModule } from 'primeng/colorpicker';
 import { MoreInfoComponent } from './more-info/more-info.component';
+import { CityListComponent } from './city-list/city-list.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { MoreInfoComponent } from './more-info/more-info.component';
     HeaderComponent,
     HomeComponent,
     LoginComponent,
+    CityListComponent,
   ],
   imports: [
     AngularFireAuthModule,
