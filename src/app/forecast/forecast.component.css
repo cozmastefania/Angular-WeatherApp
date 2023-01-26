@@ -1,9 +1,3 @@
-.header {
-  display: flex;
-  justify-content: end;
-  padding: 1em;
-}
-
 
 .forecast-list h2 {
   margin-left: 2.5em;

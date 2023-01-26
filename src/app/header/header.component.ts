@@ -14,10 +14,12 @@ export class HeaderComponent {
  @Input() currentUnitSystem: string = "";
  @Output() changeUnit: EventEmitter<string> = new EventEmitter();
  
+  isClicked!: boolean;
   isUnitSwitcherChecked = false;
 
   ngOnInit() {
     this.isUnitSwitcherChecked = this.currentUnitSystem === appConfig.defaultUnit;
+    this.isClicked = false;
   }
 
    onChangeUnitSwitcher() {
@@ -25,5 +27,9 @@ export class HeaderComponent {
     const unitIndex = this.isUnitSwitcherChecked ? 1 : 0;
 
     this.changeUnit.emit(unitSystems[unitIndex]);
+  }
+
+  onClickFavorites() {
+    this.isClicked = true;
   }
 }
