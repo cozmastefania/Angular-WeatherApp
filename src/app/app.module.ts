@@ -19,18 +19,14 @@ import { TabViewModule } from 'primeng/tabview';
 import { ToastModule } from 'primeng/toast';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CityListComponent } from './city-list/city-list.component';
-import { CityComponent } from './city-list/city/city.component';
 import { environment } from './environments/environment';
 import { ForecastItemComponent } from './forecast/forecast-item/forecast-item.component';
 import { ForecastComponent } from './forecast/forecast.component';
-import { FormComponent } from './form/form.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
-import { TypesOfInputComponent } from './form/types-of-input/types-of-input.component';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ChipsModule } from 'primeng/chips';
 import { ColorPickerModule } from 'primeng/colorpicker';
@@ -39,20 +35,19 @@ import { MoreInfoComponent } from './more-info/more-info.component';
 @NgModule({
   declarations: [
     AppComponent,
-    CityComponent,
-    CityListComponent,
     ForecastComponent,
     ForecastItemComponent,
     ForecastComponent,
-    CityListComponent,
     NavbarComponent,
     RegisterComponent,
-    TypesOfInputComponent,
     MoreInfoComponent,
+    HeaderComponent,
+    HomeComponent,
+    LoginComponent,
   ],
   imports: [
     AngularFireAuthModule,
-    AngularFireDatabaseModule, 
+    AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule,
     AngularFirestoreModule,
@@ -76,6 +71,6 @@ import { MoreInfoComponent } from './more-info/more-info.component';
     ColorPickerModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

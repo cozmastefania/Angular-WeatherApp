@@ -84,7 +84,7 @@
   font-size: 1em;
   border-radius: 3px;
   margin-top: 10px;
-  border: 1.5px solid  rgba(62, 150, 166, 1); 
+  border: 1.5px solid rgba(62, 150, 166, 1);
   color: black;
 }
 
@@ -97,16 +97,6 @@
   background-image: linear-gradient(170deg, rgba(125, 105, 186, 1) 7%, rgba(62, 150, 166, 1) 14%, rgba(12, 186, 153, 1) 21%);
   padding: 5px;
   margin-top: 10px;
-}
-
-.city-list {
-  color: white;
-  font-size: 1em;
-  font-weight: 600;
-  border-radius: 5px;
-  border-color: #FFF;
-  background-color: rgba(0, 0, 0, 0.3);
-  padding: 5px;
 }
 
 button:hover {
@@ -136,12 +126,12 @@ button:hover {
 
 .addFav {
   margin-left: 10px;
-  fill:rgb(209, 6, 6);
+  fill: rgb(209, 6, 6);
 }
 
 .removeFav {
   margin-left: 10px;
-  fill:rgb(178, 178, 178);
+  fill: rgb(178, 178, 178);
 }
 
 .temperature {
@@ -155,7 +145,7 @@ button:hover {
   color: black;
   font-size: 1em;
   text-align: center;
-  
+
 }
 
 .more-info-container {

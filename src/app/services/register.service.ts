@@ -4,7 +4,6 @@ import {
   AngularFireDatabase,
   AngularFireList,
 } from '@angular/fire/compat/database';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ref, remove } from '@angular/fire/database';
 import { Router } from '@angular/router';
 
@@ -21,7 +20,6 @@ export class RegisterService {
     private fireauth: AngularFireAuth,
     private router: Router,
     public firedb: AngularFireDatabase,
-    private firestore: AngularFirestore
   ) {
     this.user = this.getUserLoggedIn();
     this.favoritesRef = firedb.list(`favorites/${this?.user}`);
@@ -39,14 +37,7 @@ export class RegisterService {
 
   registerUser(email: string, password: string) {
     return this.fireauth.createUserWithEmailAndPassword(email, password).then(
-      (userResponse) => {
-        let user = {
-          id: userResponse.user?.uid,
-          username: userResponse.user?.email,
-          role: 'admin',
-        }
-
-        this.firestore.collection('users').add(user);
+      userResponse => {
         alert('Registration Succesful');
         this.router.navigate(['']);
       },
