@@ -16,6 +16,9 @@ export class ForecastComponent implements OnInit, OnChanges, OnDestroy {
     lon: number;
     lat: number;
   };
+
+  @Input() favorites!: Array<string>;
+  
   measureOfTemp: string = '';
   unitSystem: string = '';
 

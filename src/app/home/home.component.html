@@ -52,7 +52,7 @@
   </div>
 
   <div class="right-container">
-    <app-forecast [coord]="WeatherData?.coord"></app-forecast>
+    <app-forecast [coord]="WeatherData?.coord" [favorites]="favoriteCity"></app-forecast>
     <app-more-info [weatherData]="WeatherData" [measureOfTemp]="measureOfTemp"></app-more-info>
   </div>
 </div>

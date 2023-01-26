@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   currentTime!: number;
   sunriseTime!: number;
   sunsetTime!: number;
+  wind!:number;
   icon!: string;
 
   cityName: string = 'Cluj';
@@ -48,7 +49,6 @@ export class HomeComponent implements OnInit {
 
     onValue(starRef, snapshot => {
       this.dataFromFavorites = snapshot.val();
-      console.log(this.dataFromFavorites);
       Object.values(this.dataFromFavorites).map((data: string) => {
         this.favoriteCity.push(data);
       });
@@ -81,7 +81,8 @@ export class HomeComponent implements OnInit {
         '&appid=5fe302f14d5bd84b4b60562300f00762'
     )
       .then(response => response.json())
-      .then(data => this.setWeatherData(data));
+      .then(data => 
+        this.setWeatherData(data));
   }
 
   setWeatherData(data: any) {
@@ -90,7 +91,7 @@ export class HomeComponent implements OnInit {
     this.sunsetTime = new Date(data.sys.sunset * 1000).getHours();
     this.currentTime = new Date().getHours();
     this.WeatherData.humidity = data.main.humidity;
-    this.WeatherData.wind = data.wind.speed;
+    this.wind = data.wind.speed;
     this.icon = 'http://openweathermap.org/img/wn/' + this.WeatherData.weather[0].icon + '.png';
 
     if (this.unitSystem === 'metric') {
@@ -122,7 +123,7 @@ export class HomeComponent implements OnInit {
       
     }
 
-    console.log(this.icon);
+    // console.log(data);
   }
 
   onLoadCityList() {

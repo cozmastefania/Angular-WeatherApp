@@ -1,6 +1,7 @@
 <div class="forecast-container">
   <div class="header">
     <app-header
+      [listOfFavorites]="favorites"
       [currentUnitSystem]="unitSystem"
       (changeUnit)="changeUnit($event)">
     </app-header>
