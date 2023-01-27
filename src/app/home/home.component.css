@@ -116,7 +116,6 @@ button:hover {
 }
 
 .location {
-  z-index: 100;
   display: flex;
   color: black;
   text-align: center;
