@@ -3,8 +3,9 @@
     [options]="listOfFavorites"
     [(ngModel)]="selectedCity"
     placeholder="Load my cities"
-    (click)="getName($event)"></p-dropdown>
-
+    (onChange)="getName()"   
+    >
+  </p-dropdown>
   <div class="header-right-block">
     C
     <ui-switch

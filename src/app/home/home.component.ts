@@ -19,21 +19,21 @@ export class HomeComponent implements OnInit {
   unitSystem: string = '';
 
   WeatherData: any;
-  wind!: number;
-  icon!: string;
-  description!: string;
-  photoUrl!: string;
-  cityImage!: any;
+  wind: number;
+  icon: string;
+  description: string;
+  photoUrl: string;
+  cityImage: any;
 
-  cityName!: string;
-  isLoggedIn!: any;
-  nameToShow!: string;
-  isAdded!: boolean;
+  cityName: string;
+  isLoggedIn: any;
+  nameToShow: string;
+  isAdded: boolean;
 
-  user!: any;
-  dataFromFavorites!: object;
+  user: any;
+  dataFromFavorites: object;
   favoriteCity: Array<string> = [];
-  key!: any;
+  key: any;
 
   constructor(
     private auth: RegisterService,
@@ -72,6 +72,12 @@ export class HomeComponent implements OnInit {
         : apiConfig.measurementUnits.imperial;
 
     this.measureOfTemp = measurementUnits.temperature;
+
+    this.weatherService.selectedCityListener().subscribe(
+      selectedCity => {
+        this.getWeatherData(selectedCity);
+      }
+    )
   }
 
   changeUnit(unitSystem: string) {

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { appConfig } from 'src/app/config';
 import { LocalstorageService } from 'src/app/services/localstorage.service';
 
@@ -7,6 +8,7 @@ import { LocalstorageService } from 'src/app/services/localstorage.service';
 })
 export class WeatherService {
   private unitSystem: string = '';
+  private selectedCityEvent = new BehaviorSubject<string>('');
 
   constructor(private localStorageService: LocalstorageService) {
     this.unitSystem =
@@ -20,5 +22,13 @@ export class WeatherService {
   updateUnitSystem(unitSystem: string): void {
     this.localStorageService.set('unit', unitSystem);
     setTimeout(() => window.location.reload(), 300);
+  }
+
+  emitSelectedCityEvent(name:string) {
+    this.selectedCityEvent.next(name);
+  }
+
+  selectedCityListener() {
+    return this.selectedCityEvent.asObservable();
   }
 }

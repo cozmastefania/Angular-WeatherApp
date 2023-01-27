@@ -41,14 +41,14 @@
             </svg>
           </div>
         </div>
-        <div class="temperature">
-          {{ WeatherData?.currentTemperature }}° {{ measureOfTemp }}
-        </div>
         <img src="{{ icon }}" />
         <p class="description">{{ description }}</p>
       </div>
     </div>
     <div class="lower-data">
+      <div class="temperature">
+          {{ WeatherData?.currentTemperature }}° {{ measureOfTemp }}
+      </div>
       <img src="{{ cityImage }}" />
     </div>
   </div>
@@ -57,7 +57,7 @@
     <app-forecast
       [coord]="WeatherData?.coord"
       [favorites]="favoriteCity"
-      [function]="getWeatherData"></app-forecast>
+      ></app-forecast>
     <app-more-info
       [weatherData]="WeatherData"
       [measureOfTemp]="measureOfTemp"></app-more-info>
