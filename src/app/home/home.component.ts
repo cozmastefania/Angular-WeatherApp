@@ -43,12 +43,13 @@ export class HomeComponent implements OnInit {
     private unsplashService: UnsplashService
   ) {
     this.isLoggedIn = localStorage.getItem('user');
-
+    
     this.user = this.auth.getUserLoggedIn();
     const db = getDatabase();
     const starRef = ref(db, 'favorites/' + this.user);
 
     onValue(starRef, snapshot => {
+      
       this.dataFromFavorites = snapshot.val();
       Object.values(this.dataFromFavorites).map((data: string) => {
         if (this.favoriteCity.includes(data) === false) {
@@ -65,10 +66,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(!this.isLoggedIn) {
-      this.getWeatherData('Bucharest');
-    }
-    // this.getWeatherData('Bucharest');
+
     this.unitSystem = this.weatherService.getUnitSystem();
     const measurementUnits =
       this.unitSystem === 'metric'
@@ -82,6 +80,10 @@ export class HomeComponent implements OnInit {
         this.getWeatherData(selectedCity);
       }
     )
+    
+    if(!this.isLoggedIn) {
+      this.getWeatherData('Bucharest');
+    }
   }
 
   changeUnit(unitSystem: string) {
