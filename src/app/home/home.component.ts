@@ -147,10 +147,7 @@ export class HomeComponent implements OnInit {
     console.log(this.photoUrl);
     fetch(this.photoUrl)
       .then(photos => photos.json())
-      .then(data => (this.cityImage = data.results[4].urls.regular));
-    fetch(this.photoUrl)
-      .then(photos => photos.json())
-      .then(data => console.log(data.results[3].urls));
+      .then(data => (this.cityImage = data.results[0].urls.regular));
   }
 
   onLoadCityList() {
