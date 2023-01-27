@@ -5,7 +5,8 @@ import {
 } from '@angular/fire/compat/database';
 import { Router } from '@angular/router';
 import { getDatabase, onValue, ref, remove } from 'firebase/database';
-import { apiConfig } from 'src/app/config';
+import { apiConfig, unsplash } from 'src/app/config';
+import { UnsplashService } from 'src/app/services/unsplash.service';
 import { WeatherService } from 'src/app/services/weather.service';
 import { RegisterService } from '../services/register.service';
 @Component({
@@ -23,6 +24,9 @@ export class HomeComponent implements OnInit {
   sunsetTime!: number;
   wind!: number;
   icon!: string;
+  description!: string;
+  photoUrl!: string;
+  cityImage!: any;
 
   // cityName: string = 'Cluj';
   cityName!: string
@@ -30,7 +34,6 @@ export class HomeComponent implements OnInit {
   nameToShow!: string;
   isAdded!: boolean;
 
-  favoritesRef!: AngularFireList<object>;
   user!: any;
   dataFromFavorites!: object;
   favoriteCity: Array<string> = [];
@@ -40,8 +43,9 @@ export class HomeComponent implements OnInit {
     private auth: RegisterService,
     public firedb: AngularFireDatabase,
     private router: Router,
-    private weatherService: WeatherService
-  ){
+    private weatherService: WeatherService,
+    private unsplashService: UnsplashService
+  ) {
     this.isLoggedIn = localStorage.getItem('user');
 
     this.user = this.auth.getUserLoggedIn();
@@ -106,7 +110,8 @@ export class HomeComponent implements OnInit {
     this.icon =
       'http://openweathermap.org/img/wn/' +
       this.WeatherData.weather[0].icon +
-      '.png';
+      '@2x.png';
+    this.description = this.WeatherData.weather[0].description;
 
     if (this.unitSystem === 'metric') {
       this.WeatherData.currentTemperature = (data.main.temp - 273.15).toFixed(
@@ -136,7 +141,16 @@ export class HomeComponent implements OnInit {
       this.WeatherData.wind = data.wind.speed;
     }
 
-    // console.log(data);
+    this.photoUrl = this.unsplashService.getImage(
+      this.nameToShow.toLowerCase()
+    );
+    console.log(this.photoUrl);
+    fetch(this.photoUrl)
+      .then(photos => photos.json())
+      .then(data => (this.cityImage = data.results[4].urls.regular));
+    fetch(this.photoUrl)
+      .then(photos => photos.json())
+      .then(data => console.log(data.results[3].urls));
   }
 
   onLoadCityList() {
