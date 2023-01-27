@@ -1,5 +1,6 @@
-<div class="header">
-  <p-dropdown
+<div [ngClass]="{'header' : isLoggedIn,
+'notLoggedHeader' : !isLoggedIn}">
+  <p-dropdown *ngIf="isLoggedIn" 
     [options]="listOfFavorites"
     [(ngModel)]="selectedCity"
     placeholder="Load my cities"

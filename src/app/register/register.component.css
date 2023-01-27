@@ -1,0 +1,62 @@
+.content {
+    margin-top: 80px;
+}
+.register-container {
+    width: 70vh;
+    height: 70vh;
+    border-radius: 20px;
+    background-color: #FFF;
+    box-shadow: 10px 10px 10px var(--shadow-dark);
+    margin: auto;
+    align-items: center;
+}
+
+.register-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 30px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.form-field-register {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    font-weight: 600px;
+    height: 210px;
+    margin-top: 100px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.input-field-register {
+    margin: 10px;
+    padding: 10px;
+    width: 50vh;
+    font-size: 15px;
+    border-radius: 6px;
+    border:1px solid rgb(125, 105, 186);
+    background-color: rgba(0, 0, 0, 0.009);
+}
+
+.button-to-register {
+    width: 50vh;
+    font-size: 15px;
+    padding: 10px;
+    font-weight: 600;
+    border-radius: 6px;
+    margin-top: 10px;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    margin-bottom: 20px;
+}
+
+.register-button {
+    font-size: 15px;
+    padding: 10px;
+    background: none;
+    border: none;
+    text-decoration: underline;
+
+}

@@ -11,6 +11,7 @@ import { apiConfig, appConfig } from 'src/app/config';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
+  @Input() isLoggedIn!:boolean;
   @Input() currentUnitSystem: string = '';
   @Input() listOfFavorites!: Array<string>;
   @Input() getWeather!:(args:any) => void;

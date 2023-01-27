@@ -69,6 +69,9 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(!this.isLoggedIn) {
+      this.getWeatherData('Bucharest');
+    }
     // this.getWeatherData('Bucharest');
     this.unitSystem = this.weatherService.getUnitSystem();
     const measurementUnits =
@@ -97,7 +100,9 @@ export class HomeComponent implements OnInit {
         '&appid=5fe302f14d5bd84b4b60562300f00762'
     )
       .then(response => response.json())
-      .then(data => this.setWeatherData(data));
+      .then(data => {
+        console.log(data);
+        this.setWeatherData(data) });
   }
 
   setWeatherData(data: any) {

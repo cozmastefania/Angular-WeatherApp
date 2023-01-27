@@ -17,8 +17,11 @@ export class ForecastComponent implements OnInit, OnChanges, OnDestroy {
     lat: number;
   };
 
+  @Input() isLoggedIn!:boolean;
+
   @Input()
   function!: (args: any) => void;
+
 
   @Input() favorites!: Array<string>;
 

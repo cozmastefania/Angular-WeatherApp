@@ -5,6 +5,17 @@
   margin: 10px 15px 0 15px;
 }
 
+.notLoggedHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 10px 15px 0 15px;
+}
+
+.header-right-block {
+  align-items: flex-end;
+}
+
 .city-list {
   padding: 0;
   font-family: 'Nunito', sans-serif;
