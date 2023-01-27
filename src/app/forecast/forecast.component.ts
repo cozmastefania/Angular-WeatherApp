@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { apiConfig } from 'src/app/config';
 
@@ -29,7 +29,7 @@ export class ForecastComponent implements OnInit, OnChanges, OnDestroy {
   unitSystem: string = '';
 
   forecastList: any[] = [];
-  forecastSub!: Subscription;
+  forecastSub: Subscription;
 
   constructor(
     private forecastService: ForecastService,

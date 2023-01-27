@@ -43,13 +43,12 @@ export class RegisterService {
 
   createFavorite(fav: any) {
     console.log(this.favoriteCity.includes(fav));
-    if(this.favoriteCity.includes(fav)) {
-      return;
+    if (this.favoriteCity.includes(fav)) {
     }
     return this.favoritesRef.push(fav);
-  }  
+  }
 
-  removeFavorite(key:string) {
+  removeFavorite(key: string) {
     return this.favoritesRef.remove(key);
   }
 

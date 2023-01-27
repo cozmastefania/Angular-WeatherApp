@@ -5,28 +5,18 @@ import { RegisterService } from 'src/app/services/register.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
+  isLoggedIn!: any;
 
-  isLoggedIn!:any;
-
-  constructor(private auth: RegisterService) {
-   }
+  constructor(private auth: RegisterService) {}
 
   ngOnInit(): void {
     this.isLoggedIn = localStorage.getItem('user');
   }
-  
 
   logOut() {
     this.auth.logoutUser();
   }
-
-  // logIn() {
-  //   if (localStorage.getItem('token')) {
-  //     this.auth.logoutUser();
-
-  // }
-
 }

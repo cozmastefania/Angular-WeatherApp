@@ -41,23 +41,22 @@
             </svg>
           </div>
         </div>
-        <div class="temperature">
-          {{ WeatherData?.currentTemperature }}° {{ measureOfTemp }}
-        </div>
         <img src="{{ icon }}" />
         <p class="description">{{ description }}</p>
       </div>
     </div>
     <div class="lower-data">
-      <img src={{cityImage}} *ngIf="currentTime <= sunsetTime" />
-      <!-- <img src="../assets/cold.jpg" *ngIf="sunsetTime < currentTime" />> -->
+      <div class="temperature">
+          {{ WeatherData?.currentTemperature }}° {{ measureOfTemp }}
+      </div>
+      <img src="{{ cityImage }}" />
     </div>
   </div>
 
   <div class="right-container">
     <app-forecast
       [coord]="WeatherData?.coord"
-      [favorites]="favoriteCity" [function]="getWeatherData" [isLoggedIn]="isLoggedIn"></app-forecast>
+      [favorites]="favoriteCity"  [isLoggedIn]="isLoggedIn"></app-forecast>
     <app-more-info
       [weatherData]="WeatherData"
       [measureOfTemp]="measureOfTemp"></app-more-info>

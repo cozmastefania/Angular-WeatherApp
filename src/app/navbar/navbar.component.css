@@ -12,24 +12,15 @@ nav {
 
 .log {
   height: 40px;
-  /* width: 70px; */
   display: flex;
   flex-direction: row;
   align-items: center;
+  border-radius: 20px;
+  color: black;
+  background-color: white;
+  padding: 0.5em;
 }
 
 .log:hover {
   cursor: pointer;
-}
-
-.city-list a {
-  color: #66523e;
-  text-decoration: none;
-}
-
-.active {
-  border-bottom: solid .2em #66523e;
-  color: #66523e;
-  text-decoration: none;
-  padding: .2em;
 }

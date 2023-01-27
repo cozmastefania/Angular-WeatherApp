@@ -19,25 +19,21 @@ export class HomeComponent implements OnInit {
   unitSystem: string = '';
 
   WeatherData: any;
-  currentTime!: number;
-  sunriseTime!: number;
-  sunsetTime!: number;
-  wind!: number;
-  icon!: string;
-  description!: string;
-  photoUrl!: string;
-  cityImage!: any;
+  wind: number;
+  icon: string;
+  description: string;
+  photoUrl: string;
+  cityImage: any;
 
-  // cityName: string = 'Cluj';
-  cityName!: string
-  isLoggedIn!: any;
-  nameToShow!: string;
-  isAdded!: boolean;
+  cityName: string;
+  isLoggedIn: any;
+  nameToShow: string;
+  isAdded: boolean;
 
-  user!: any;
-  dataFromFavorites!: object;
+  user: any;
+  dataFromFavorites: object;
   favoriteCity: Array<string> = [];
-  key!: any;
+  key: any;
 
   constructor(
     private auth: RegisterService,
@@ -55,13 +51,13 @@ export class HomeComponent implements OnInit {
     onValue(starRef, snapshot => {
       this.dataFromFavorites = snapshot.val();
       Object.values(this.dataFromFavorites).map((data: string) => {
-        if(this.favoriteCity.includes(data) === false) {
-           this.favoriteCity.push(data);
+        if (this.favoriteCity.includes(data) === false) {
+          this.favoriteCity.push(data);
         }
       });
       this.isAdded = this.favoriteCity.includes(this.nameToShow);
       this.cityName = this.favoriteCity[0];
-      if(this.favoriteCity.length !== 0) {
+      if (this.favoriteCity.length !== 0) {
         this.getWeatherData(this.cityName);
       }
       console.log(this.favoriteCity);
@@ -81,6 +77,11 @@ export class HomeComponent implements OnInit {
 
     this.measureOfTemp = measurementUnits.temperature;
 
+    this.weatherService.selectedCityListener().subscribe(
+      selectedCity => {
+        this.getWeatherData(selectedCity);
+      }
+    )
   }
 
   changeUnit(unitSystem: string) {
@@ -90,10 +91,10 @@ export class HomeComponent implements OnInit {
   getWeatherData(cityName: any) {
     this.nameToShow = cityName;
     this.cityName = cityName;
-    if(this.favoriteCity) {
+    if (this.favoriteCity) {
       this.isAdded = this.favoriteCity.includes(this.nameToShow);
     }
-    
+
     fetch(
       'https://api.openweathermap.org/data/2.5/weather?q=' +
         cityName +
@@ -107,9 +108,6 @@ export class HomeComponent implements OnInit {
 
   setWeatherData(data: any) {
     this.WeatherData = data;
-    this.sunriseTime = new Date(data.sys.sunrise * 1000).getHours();
-    this.sunsetTime = new Date(data.sys.sunset * 1000).getHours();
-    this.currentTime = new Date().getHours();
     this.WeatherData.humidity = data.main.humidity;
     this.wind = data.wind.speed;
     this.icon =
@@ -152,10 +150,7 @@ export class HomeComponent implements OnInit {
     console.log(this.photoUrl);
     fetch(this.photoUrl)
       .then(photos => photos.json())
-      .then(data => (this.cityImage = data.results[4].urls.regular));
-    fetch(this.photoUrl)
-      .then(photos => photos.json())
-      .then(data => console.log(data.results[3].urls));
+      .then(data => (this.cityImage = data.results[0].urls.regular));
   }
 
   onLoadCityList() {
@@ -164,25 +159,22 @@ export class HomeComponent implements OnInit {
 
   addFavorite() {
     this.auth.createFavorite(this.cityName);
-    this.cityName = this.favoriteCity[this.favoriteCity.length-1];
+    this.cityName = this.favoriteCity[this.favoriteCity.length - 1];
     console.log(this.cityName);
-    if(this.favoriteCity) {
-      console.log(this.favoriteCity[this.favoriteCity.length-1])
-      this.getWeatherData(this.favoriteCity[this.favoriteCity.length-1]);
+    if (this.favoriteCity) {
+      console.log(this.favoriteCity[this.favoriteCity.length - 1]);
+      this.getWeatherData(this.favoriteCity[this.favoriteCity.length - 1]);
     }
-    
-    // window.location.reload();
   }
 
   removeFavorite() {
     const db = getDatabase();
-    
     console.log(this.dataFromFavorites);
     this.key = Object.keys(this.dataFromFavorites).find(
       key => (this.dataFromFavorites as any)[key] === this.cityName
     );
     remove(ref(db, 'favorites/' + this.user + '/' + this.key));
-    this.favoriteCity.filter((value) => value !== this.key);
+    this.favoriteCity.filter(value => value !== this.key);
     window.location.reload();
   }
 }
