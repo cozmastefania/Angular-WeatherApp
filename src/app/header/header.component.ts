@@ -13,42 +13,28 @@ import { apiConfig, appConfig } from 'src/app/config';
 export class HeaderComponent {
   @Input() currentUnitSystem: string = '';
   @Input() listOfFavorites!: Array<string>;
-  @Input() getWeather!:(args:any) => void;
+  @Input() getWeather!: (args: any) => void;
   @Output() changeUnit: EventEmitter<string> = new EventEmitter();
 
   isClicked!: boolean;
   isUnitSwitcherChecked = false;
-  
 
   selectedCity!: string;
 
-  constructor() {
-   
-  }
-  
+  constructor() {}
+
   ngOnInit() {
     this.isUnitSwitcherChecked =
-    this.currentUnitSystem === appConfig.defaultUnit;
+      this.currentUnitSystem === appConfig.defaultUnit;
     this.isClicked = false;
-    
-    
-    // console.log(this.listOfFavorites);
-  
-    //  { const obj = {name: city};
-    //   console.log(obj);
-    //   this.cities.push(obj)
-    // }
-    
-
   }
 
-  getName(event:any) {
+  getName(event: any) {
     this.selectedCity = event.target.textContent;
     console.log(this.selectedCity);
-    if(this.selectedCity) {
+    if (this.selectedCity) {
       this.getWeather(this.selectedCity);
     }
-    
   }
 
   onChangeUnitSwitcher() {

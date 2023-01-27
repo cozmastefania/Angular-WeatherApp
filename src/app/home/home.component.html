@@ -49,15 +49,15 @@
       </div>
     </div>
     <div class="lower-data">
-      <img src={{cityImage}} *ngIf="currentTime <= sunsetTime" />
-      <!-- <img src="../assets/cold.jpg" *ngIf="sunsetTime < currentTime" />> -->
+      <img src="{{ cityImage }}" />
     </div>
   </div>
 
   <div class="right-container">
     <app-forecast
       [coord]="WeatherData?.coord"
-      [favorites]="favoriteCity" [function]="getWeatherData"></app-forecast>
+      [favorites]="favoriteCity"
+      [function]="getWeatherData"></app-forecast>
     <app-more-info
       [weatherData]="WeatherData"
       [measureOfTemp]="measureOfTemp"></app-more-info>

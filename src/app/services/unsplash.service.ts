@@ -16,13 +16,13 @@ export class UnsplashService {
   }
 
   public getImage(cityName: string): string {
-  return (
-    unsplash.apiURL +
-    '?client_id=' +
-    unsplash.accessKey +
-    '&query=' +
-    cityName +
-    '&orientation=landscape'
-  ); 
+    return (
+      unsplash.apiURL +
+      '?client_id=' +
+      unsplash.accessKey +
+      '&query=' +
+      cityName +
+      '&orientation=landscape'
+    );
   }
 }

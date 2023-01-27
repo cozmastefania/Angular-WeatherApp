@@ -5,27 +5,30 @@ import { RegisterService } from '../services/register.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-
   firstName: string = '';
   lastName: string = '';
   email: string = '';
   password: string = '';
 
-  constructor(private router: Router, private register: RegisterService) { }
+  constructor(private router: Router, private register: RegisterService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   redirectToLogin() {
     this.router.navigate(['']);
   }
 
   registerUser() {
-    if (this.firstName == '' || this.lastName == '' || this.email == '' || this.password == '') {
-      console.log(this.firstName,this.lastName,this.email,this.password)
+    if (
+      this.firstName == '' ||
+      this.lastName == '' ||
+      this.email == '' ||
+      this.password == ''
+    ) {
+      console.log(this.firstName, this.lastName, this.email, this.password);
       alert('Please complete all fields');
       return;
     }
@@ -34,6 +37,5 @@ export class RegisterComponent implements OnInit {
     this.lastName = '';
     this.email = '';
     this.password = '';
-
   }
 }

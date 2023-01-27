@@ -11,7 +11,6 @@ nav {
 
 .log {
   height: 40px;
-  /* width: 70px; */
   display: flex;
   flex-direction: row;
   align-items: center;

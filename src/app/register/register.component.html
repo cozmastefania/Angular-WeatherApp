@@ -1,18 +1,39 @@
 <div class="content">
-<div class="register-container">
+  <div class="register-container">
     <div class="register-title">Weather app</div>
 
     <form class="form-field-register">
+      <input
+        class="input-field-register"
+        type="text"
+        placeholder="Enter your first name"
+        name="firstName"
+        [(ngModel)]="firstName" />
+      <input
+        class="input-field-register"
+        type="text"
+        placeholder="Enter your last name"
+        name="lastName"
+        [(ngModel)]="lastName" />
+      <input
+        class="input-field-register"
+        type="email"
+        placeholder="Enter your email"
+        name="email"
+        [(ngModel)]="email" />
+      <input
+        class="input-field-register"
+        type="password"
+        placeholder="Enter your password"
+        name="password"
+        [(ngModel)]="password" />
 
-        <input class="input-field-register" type="text" placeholder="Enter your first name" name="firstName" [(ngModel)]="firstName">
-        <input class="input-field-register" type="text" placeholder="Enter your last name" name="lastName" [(ngModel)]="lastName">
-        <input class="input-field-register" type="email" placeholder="Enter your email" name="email" [(ngModel)]="email">
-        <input class="input-field-register" type="password" placeholder="Enter your password" name="password" [(ngModel)]="password">
-
-        <button class="button-to-register" (click)="registerUser()">Register</button>
-        <button class="register-button" (click)="redirectToLogin()"> Or log in here if you have an account</button>
-    
+      <button class="button-to-register" (click)="registerUser()">
+        Register
+      </button>
+      <button class="register-button" (click)="redirectToLogin()">
+        Or log in here if you have an account
+      </button>
     </form>
-
-</div>
+  </div>
 </div>

@@ -1,17 +1,17 @@
-import { Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { appConfig } from 'src/app/config';
 import { LocalstorageService } from 'src/app/services/localstorage.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WeatherService {
-
-  private unitSystem: string = "";
+  private unitSystem: string = '';
 
   constructor(private localStorageService: LocalstorageService) {
-    this.unitSystem = this.localStorageService.get('unit') || appConfig.defaultUnit;
-   }
+    this.unitSystem =
+      this.localStorageService.get('unit') || appConfig.defaultUnit;
+  }
 
   getUnitSystem(): string {
     return this.unitSystem;
@@ -21,5 +21,4 @@ export class WeatherService {
     this.localStorageService.set('unit', unitSystem);
     setTimeout(() => window.location.reload(), 300);
   }
-
 }
