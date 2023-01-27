@@ -5,10 +5,6 @@ import { Component } from '@angular/core';
 
 import { apiConfig, appConfig } from 'src/app/config';
 
-interface City {
-  name: string;
-}
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -17,22 +13,17 @@ interface City {
 export class HeaderComponent {
   @Input() currentUnitSystem: string = '';
   @Input() listOfFavorites!: Array<string>;
+  @Input() getWeather!:(args:any) => void;
   @Output() changeUnit: EventEmitter<string> = new EventEmitter();
 
   isClicked!: boolean;
   isUnitSwitcherChecked = false;
+  
 
-  cities: City[] = [];
-  selectedCity!: City;
+  selectedCity!: string;
 
   constructor() {
-    this.cities = [
-      { name: 'New York'},
-      { name: 'Rome'},
-      { name: 'London'},
-      { name: 'Istanbul'},
-      { name: 'Paris'},
-    ];
+   
   }
   
   ngOnInit() {
@@ -40,16 +31,24 @@ export class HeaderComponent {
     this.currentUnitSystem === appConfig.defaultUnit;
     this.isClicked = false;
     
+    
     // console.log(this.listOfFavorites);
-    this.listOfFavorites?.map(city => 
-      console.log(city)
+  
     //  { const obj = {name: city};
     //   console.log(obj);
     //   this.cities.push(obj)
     // }
-    );
+    
 
-    console.log(this.cities);
+  }
+
+  getName(event:any) {
+    this.selectedCity = event.target.textContent;
+    console.log(this.selectedCity);
+    if(this.selectedCity) {
+      this.getWeather(this.selectedCity);
+    }
+    
   }
 
   onChangeUnitSwitcher() {

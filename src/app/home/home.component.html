@@ -7,7 +7,7 @@
           <input
             class="input-field"
             type="text"
-            name="cityName"
+            name="nameToShow"
             [(ngModel)]="cityName" />
           <button class="search-button" (click)="getWeatherData(cityName)">
             Search
@@ -52,7 +52,7 @@
   </div>
 
   <div class="right-container">
-    <app-forecast [coord]="WeatherData?.coord" [favorites]="favoriteCity"></app-forecast>
+    <app-forecast [coord]="WeatherData?.coord" [favorites]="favoriteCity" [function]="getWeatherData"></app-forecast>
     <app-more-info [weatherData]="WeatherData" [measureOfTemp]="measureOfTemp"></app-more-info>
   </div>
 </div>

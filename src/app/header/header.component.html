@@ -1,8 +1,10 @@
 <div class="header">
   <p-dropdown
-    [options]="cities"
+    [options]="listOfFavorites"
     [(ngModel)]="selectedCity"
-    optionLabel="name"></p-dropdown>
+    placeholder="Load my cities"
+    (click)="getName($event)"
+    ></p-dropdown>
 
   <div class="header-right-block">
     C

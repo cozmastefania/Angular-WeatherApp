@@ -32,8 +32,11 @@ export class RegisterService {
 
   createFavorite(fav: any) {
     console.log(this.favoriteCity.includes(fav));
+    if(this.favoriteCity.includes(fav)) {
+      return;
+    }
     return this.favoritesRef.push(fav);
-  }
+  }  
 
   registerUser(email: string, password: string) {
     return this.fireauth.createUserWithEmailAndPassword(email, password).then(

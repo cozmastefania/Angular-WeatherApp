@@ -24,7 +24,8 @@ export class HomeComponent implements OnInit {
   wind!: number;
   icon!: string;
 
-  cityName: string = 'Cluj';
+  // cityName: string = 'Cluj';
+  cityName!: string
   isLoggedIn!: any;
   nameToShow!: string;
   isAdded!: boolean;
@@ -40,7 +41,7 @@ export class HomeComponent implements OnInit {
     public firedb: AngularFireDatabase,
     private router: Router,
     private weatherService: WeatherService
-  ) {
+  ){
     this.isLoggedIn = localStorage.getItem('user');
 
     this.user = this.auth.getUserLoggedIn();
@@ -50,14 +51,21 @@ export class HomeComponent implements OnInit {
     onValue(starRef, snapshot => {
       this.dataFromFavorites = snapshot.val();
       Object.values(this.dataFromFavorites).map((data: string) => {
-        this.favoriteCity.push(data);
+        if(this.favoriteCity.includes(data) === false) {
+           this.favoriteCity.push(data);
+        }
       });
       this.isAdded = this.favoriteCity.includes(this.nameToShow);
+      this.cityName = this.favoriteCity[0];
+      if(this.favoriteCity.length !== 0) {
+        this.getWeatherData(this.cityName);
+      }
       console.log(this.favoriteCity);
     });
   }
 
   ngOnInit(): void {
+    // this.getWeatherData('Bucharest');
     this.unitSystem = this.weatherService.getUnitSystem();
     const measurementUnits =
       this.unitSystem === 'metric'
@@ -65,7 +73,7 @@ export class HomeComponent implements OnInit {
         : apiConfig.measurementUnits.imperial;
 
     this.measureOfTemp = measurementUnits.temperature;
-    this.getWeatherData('Cluj');
+
   }
 
   changeUnit(unitSystem: string) {
@@ -74,7 +82,11 @@ export class HomeComponent implements OnInit {
 
   getWeatherData(cityName: any) {
     this.nameToShow = cityName;
-    this.isAdded = this.favoriteCity.includes(this.nameToShow);
+    this.cityName = cityName;
+    if(this.favoriteCity) {
+      this.isAdded = this.favoriteCity.includes(this.nameToShow);
+    }
+    
     fetch(
       'https://api.openweathermap.org/data/2.5/weather?q=' +
         cityName +
@@ -121,6 +133,7 @@ export class HomeComponent implements OnInit {
         (data.main.temp_min - 273.15) * (9 / 5) +
         32
       ).toFixed(0);
+      this.WeatherData.wind = data.wind.speed;
     }
 
     // console.log(data);
@@ -132,16 +145,25 @@ export class HomeComponent implements OnInit {
 
   addFavorite() {
     this.auth.createFavorite(this.cityName);
+    this.cityName = this.favoriteCity[this.favoriteCity.length-1];
+    console.log(this.cityName);
+    if(this.favoriteCity) {
+      console.log(this.favoriteCity[this.favoriteCity.length-1])
+      this.getWeatherData(this.favoriteCity[this.favoriteCity.length-1]);
+    }
+    
+    // window.location.reload();
   }
 
   removeFavorite() {
     const db = getDatabase();
-    console.log('cityName' + this.cityName);
+    
     console.log(this.dataFromFavorites);
     this.key = Object.keys(this.dataFromFavorites).find(
       key => (this.dataFromFavorites as any)[key] === this.cityName
     );
     remove(ref(db, 'favorites/' + this.user + '/' + this.key));
-    console.log(ref(db, '/favorites' + this.user + '/"' + this.key + '"'));
+    this.favoriteCity.filter((value) => value !== this.key);
+    window.location.reload();
   }
 }
