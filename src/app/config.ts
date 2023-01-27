@@ -1,3 +1,5 @@
+import { createApi } from 'unsplash-js';
+
 export const appConfig = {
   defaultUnit: 'metric',
 };
@@ -9,15 +11,20 @@ export const apiConfig = {
     metric: {
       temperature: 'C',
       windSpeed: 'm/s',
-      pressure: 'mmHg'
+      pressure: 'mmHg',
     },
     imperial: {
       temperature: 'F',
       windSpeed: 'mil/h',
-      pressure: 'hPa'
-    }
+      pressure: 'hPa',
+    },
   },
   updateInterval: {
-    forecast: 300000, 
-  }
+    forecast: 300000,
+  },
+};
+
+export const unsplash = {
+  apiURL: 'https://api.unsplash.com/search/photos/',
+  accessKey: 'XFSiu0zUTnB00v4b2qi_K-BELp25FESEN5XxnJ3HBzo',
 };

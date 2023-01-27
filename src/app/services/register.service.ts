@@ -6,6 +6,7 @@ import {
 } from '@angular/fire/compat/database';
 import { ref, remove } from '@angular/fire/database';
 import { Router } from '@angular/router';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +20,7 @@ export class RegisterService {
   constructor(
     private fireauth: AngularFireAuth,
     private router: Router,
-    public firedb: AngularFireDatabase,
+    public firedb: AngularFireDatabase
   ) {
     this.user = this.getUserLoggedIn();
     this.favoritesRef = firedb.list(`favorites/${this?.user}`);
@@ -30,9 +31,23 @@ export class RegisterService {
     return localStorage.getItem('user');
   }
 
+  getTodos() {
+    return this.favoritesRef
+      .snapshotChanges()
+      .pipe(
+        map(changes =>
+          changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+        )
+      );
+  }
+
   createFavorite(fav: any) {
     console.log(this.favoriteCity.includes(fav));
     return this.favoritesRef.push(fav);
+  }
+
+  removeFavorite(key:string) {
+    return this.favoritesRef.remove(key);
   }
 
   registerUser(email: string, password: string) {

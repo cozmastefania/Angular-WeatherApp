@@ -2,7 +2,7 @@
   <div class="left-container">
     <div class="upper-data">
       <div class="weather-data">
-        <form class="form-field">
+        <form class="form-field" autocomplete="off">
           <label>Type city name</label>
           <input
             class="input-field"
@@ -41,18 +41,25 @@
             </svg>
           </div>
         </div>
-        <div class="temperature">{{ WeatherData?.currentTemperature }}° {{measureOfTemp}}</div>
+        <div class="temperature">
+          {{ WeatherData?.currentTemperature }}° {{ measureOfTemp }}
+        </div>
         <img src="{{ icon }}" />
+        <p class="description">{{ description }}</p>
       </div>
     </div>
     <div class="lower-data">
-      <img src="../assets/hot.jpg" *ngIf="currentTime <= sunsetTime" />
-      <img src="../assets/cold.jpg" *ngIf="sunsetTime < currentTime" />>
+      <img src={{cityImage}} *ngIf="currentTime <= sunsetTime" />
+      <!-- <img src="../assets/cold.jpg" *ngIf="sunsetTime < currentTime" />> -->
     </div>
   </div>
 
   <div class="right-container">
-    <app-forecast [coord]="WeatherData?.coord" [favorites]="favoriteCity"></app-forecast>
-    <app-more-info [weatherData]="WeatherData" [measureOfTemp]="measureOfTemp"></app-more-info>
+    <app-forecast
+      [coord]="WeatherData?.coord"
+      [favorites]="favoriteCity"></app-forecast>
+    <app-more-info
+      [weatherData]="WeatherData"
+      [measureOfTemp]="measureOfTemp"></app-more-info>
   </div>
 </div>
