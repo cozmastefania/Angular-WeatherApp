@@ -17,7 +17,6 @@ import { TabViewModule } from 'primeng/tabview';
 import { ToastModule } from 'primeng/toast';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CityListComponent } from './city-list/city-list.component';
 import { environment } from './environments/environment';
 import { ForecastItemComponent } from './forecast/forecast-item/forecast-item.component';
 import { ForecastComponent } from './forecast/forecast.component';
@@ -36,7 +35,6 @@ import { RegisterComponent } from './register/register.component';
     HeaderComponent,
     HomeComponent,
     LoginComponent,
-    CityListComponent,
     MoreInfoComponent,
     NavbarComponent,
     RegisterComponent,
