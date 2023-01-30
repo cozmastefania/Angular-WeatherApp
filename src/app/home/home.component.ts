@@ -57,8 +57,9 @@ export class HomeComponent implements OnInit {
         }
       });
       this.isAdded = this.favoriteCity.includes(this.nameToShow);
-      this.cityName = this.favoriteCity[0];
-      if (this.favoriteCity.length !== 0) {
+      
+      if (this.favoriteCity.length !== 0 && this.isLoggedIn) {
+        this.cityName = this.favoriteCity[0];
         this.getWeatherData(this.cityName);
       }
       console.log(this.favoriteCity);
@@ -66,7 +67,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    
     this.unitSystem = this.weatherService.getUnitSystem();
     const measurementUnits =
       this.unitSystem === 'metric'
