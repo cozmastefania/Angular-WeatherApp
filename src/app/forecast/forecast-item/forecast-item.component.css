@@ -12,7 +12,6 @@
   text-align: center;
 }
 
-
 .forecast-temp {
   color: var(--dark-text);
   font-size: 1.2em;
@@ -51,4 +50,86 @@
 
 .forecast-icon img {
   max-width: 85px;
+}
+
+@media only screen and (max-width: 1250px) {
+  .forecast-item {
+    width: 9em;
+  }
+}
+
+@media only screen and (max-width: 1140px) {
+  .forecast-item {
+    width: 8em;
+  }
+}
+
+@media only screen and (max-width: 1045px) {
+  .forecast-item {
+    width: 7em;
+    height: 8.5em;
+  }
+
+  .forecast-temp {
+    font-size: 0.9em;
+    line-height: 1;
+  }
+
+  .forecast-date {
+    font-size: 0.9em;
+    padding-top: .3em;
+  }
+
+  .forecast-time {
+    font-size: 0.9em;
+    padding-bottom: 1.2em;
+    opacity: .7;
+  }
+
+  .forecast-icon {
+    padding-top: 0;
+  }
+
+  .forecast-icon img {
+    max-width: 65px;
+  }
+
+}
+
+@media only screen and (max-width: 940px) {
+  .forecast-item {
+    width: 6em;
+    height: 8.5em;
+  }
+
+}
+
+@media only screen and (max-width: 830px) {
+  .forecast-item {
+    width: 5em;
+    height: 8.5em;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .forecast-item {
+    width: 7em;
+    height: 8.5em;
+  }
+}
+
+@media only screen and (max-width: 740px) {
+  .forecast-item {
+    width: 6em;
+    height: 8.5em;
+  }
+
+}
+
+@media only screen and (max-width: 675px) {
+  .forecast-item {
+    width: 5em;
+    height: 8.5em;
+  }
+
 }

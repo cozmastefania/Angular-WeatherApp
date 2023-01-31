@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges, OnDestroy, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { apiConfig } from 'src/app/config';
 
@@ -12,29 +12,60 @@ import { WeatherService } from 'src/app/services/weather.service';
 })
 export class ForecastComponent implements OnInit, OnChanges, OnDestroy {
   @Input()
-  coord!: {
+  coord: {
     lon: number;
     lat: number;
   };
 
-  @Input() isLoggedIn!:boolean;
+  @Input() isLoggedIn: boolean;
 
-  @Input()
-  function!: (args: any) => void;
+  @Input() favorites: Array<string>;
 
+  measureOfTemp: string;
+  unitSystem: string;
 
-  @Input() favorites!: Array<string>;
-
-  measureOfTemp: string = '';
-  unitSystem: string = '';
-
-  forecastList: any[] = [];
+  forecastList: any[];
   forecastSub: Subscription;
+
+  responsiveOptions: any[];
 
   constructor(
     private forecastService: ForecastService,
     private weatherService: WeatherService
-  ) {}
+  ) {
+    this.responsiveOptions = [
+      {
+        breakpoint: '2560px',
+        numVisible: 8,
+        numScroll: 8,
+      },
+      {
+        breakpoint: '1440px',
+        numVisible: 4,
+        numScroll: 4,
+      },
+      {
+        breakpoint: '1024px',
+        numVisible: 4,
+        numScroll: 4,
+      },
+      {
+        breakpoint: '768px',
+        numVisible: 3,
+        numScroll: 3,
+      },
+      {
+        breakpoint: '600px',
+        numVisible: 2,
+        numScroll: 2,
+      },
+      {
+        breakpoint: '480px',
+        numVisible: 1,
+        numScroll: 1,
+      },
+    ];
+  }
 
   ngOnInit() {
     this.unitSystem = this.weatherService.getUnitSystem();
