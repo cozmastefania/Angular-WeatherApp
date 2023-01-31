@@ -16,11 +16,16 @@
   align-items: flex-end;
 }
 
-.city-list {
-  padding: 0;
-  font-family: 'Nunito', sans-serif;
-  font-size: 1.4em;
-  background-color: white;
-  border-radius: 5px;
-  border: 1px solid rgba(62, 150, 166, 1);
+@media only screen and (max-width: 426px) {
+  .header {
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    align-items: center;
+    margin-top: 1em;
+  }
+
+  .header-right-block {
+    margin-top: 1em;
+  }
 }
