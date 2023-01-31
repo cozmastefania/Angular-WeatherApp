@@ -21,29 +21,20 @@
   bottom: 0;
 }
 
-/* @media only screen and (max-width: 1024px) {
-  .forecast-list {
-    display: flex;
-    flex-direction: column;
-    width: 55em;
-    height: 20em;
-    padding: 2em 1em 0 1em;
-    margin-bottom: 0;
-    top: 5em;
-    bottom: 0;
+@media only screen and (max-width: 426px) {
+  .forecast-list h2 {
+    font-size: 1.7em;
   }
 }
 
-@media only screen and (max-width: 768px) {
-  .forecast-list {
-    border: green solid 2px;
-    display: flex;
-    flex-direction: column;
-    width: 42em;
-    height: 18em;
-    padding: 2em 1em 0 1em;
-    margin-bottom: 0;
-    top: 2em;
-    bottom: 0;
+@media only screen and (max-width: 376px) {
+  .forecast-list h2 {
+    font-size: 1.5em;
   }
-} */
+}
+
+@media only screen and (max-width: 320px) {
+  .forecast-list h2 {
+    font-size: 1.3em;
+  }
+}
