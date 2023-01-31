@@ -151,3 +151,85 @@ button:hover {
   font-style: italic;
   margin-top: -1.1em;
 }
+
+@media screen and (max-width: 768px) {
+ .home-content {
+  
+  flex-direction: column;
+  margin-top: 10px;
+ } 
+
+ .upper-data {
+  height: 60%;
+ }
+
+ .lower-data {
+  height: 40%;
+ }
+
+ .left-container {
+  width: 60%;
+  height: 300px;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 20px;
+ }
+
+ .right-container {
+  width: 60%;
+  height: 300px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+ }
+
+ .form-field {
+  display: flex;
+  flex-direction: row;
+  margin-top: -60px;
+ }
+
+ .form-field label {
+  display: none;
+ }
+
+ .search-button {
+  font-size: 0.8em;
+  padding: 2px;
+  margin-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+ }
+
+ .input-field {
+  font-size: 0.9em;
+  margin-right: -1.2px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+ }
+
+ .location {
+  margin-top: -50px;
+  font-size: 1.7em;
+ }
+
+ .icon {
+  height: 50px;
+ }
+
+ .description {
+  height: 10px;
+ }
+
+ .temperature {
+  font-size: 1.3em;
+  left: 10em;
+  font-weight: 200;
+  width: 3.5em;
+  height: 3.5em;
+  margin: auto;
+ }
+ .lower-data img {
+  border-radius: 0;
+ }
+}

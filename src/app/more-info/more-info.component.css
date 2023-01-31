@@ -1,6 +1,6 @@
+
 .more-info-container {
   height: 50%;
-  flex: 1;
   background-color: var(--shadow-light);
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -60,4 +60,10 @@
   justify-content: flex-start;
   align-items: center;
   color: black;
+}
+
+@media screen and (max-width: 1139px) {
+  .info-block {
+    margin: -15px 30px 10px 60px;
+  }
 }
