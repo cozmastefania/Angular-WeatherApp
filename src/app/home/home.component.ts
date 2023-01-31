@@ -112,8 +112,8 @@ export class HomeComponent implements OnInit {
       this.WeatherData.maxTemperature = this.convertKtoC(data.main.temp_max);
     } else {
       this.WeatherData.currentTemperature = this.convertKtoF(data.main.temp);
-      this.WeatherData.minTemperature = this.convertKtoF(data.main.temp_max);
-      this.WeatherData.maxTemperature = this.convertKtoF(data.main.temp_min);
+      this.WeatherData.minTemperature = this.convertKtoF(data.main.temp_min);
+      this.WeatherData.maxTemperature = this.convertKtoF(data.main.temp_max);
     }
 
     this.photoUrl = this.unsplashService.getImage(
