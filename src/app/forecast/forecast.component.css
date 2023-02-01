@@ -47,3 +47,9 @@
     height: 17em;
   }
 }
+
+@media screen and (min-width: 767px) and (max-width: 800px) and (min-height: 823px)  {
+  .forecast-list {
+    height: 17em;
+  }
+}
