@@ -60,7 +60,7 @@ export class ForecastComponent implements OnInit, OnChanges, OnDestroy {
         numScroll: 2,
       },
       {
-        breakpoint: '480px',
+        breakpoint: '510px',
         numVisible: 1,
         numScroll: 1,
       },

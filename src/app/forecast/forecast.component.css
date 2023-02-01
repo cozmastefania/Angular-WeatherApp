@@ -21,20 +21,20 @@
   bottom: 0;
 }
 
-@media only screen and (max-width: 426px) {
+@media only screen and (max-width: 610px) {
   .forecast-list h2 {
-    font-size: 1.7em;
+    font-size: 17px;
   }
 }
 
-@media only screen and (max-width: 376px) {
+@media only screen and (max-width: 510px) {
   .forecast-list h2 {
-    font-size: 1.5em;
+    font-size: 16px;
   }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 425px) {
   .forecast-list h2 {
-    font-size: 1.3em;
+    font-size: 12px;
   }
 }
