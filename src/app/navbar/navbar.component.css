@@ -24,3 +24,14 @@ nav {
 .log:hover {
   cursor: pointer;
 }
+
+@media only screen and (max-width: 520px) {
+  .log {
+    height: 30px;
+    width: 90px;
+    font-size: 12px;
+  }
+  svg {
+    height: 22px;
+  }
+}

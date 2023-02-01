@@ -154,7 +154,7 @@ button:hover {
 
 @media screen and (max-width: 768px) {
  .home-content {
-  
+  margin-bottom: 0;
   flex-direction: column;
   margin-top: 10px;
  } 
@@ -229,7 +229,24 @@ button:hover {
   height: 3.5em;
   margin: auto;
  }
+
  .lower-data img {
   border-radius: 0;
  }
 }
+
+@media screen and (max-width: 548px) {
+  .temperature {
+    left: 5em;
+   }
+  .right-container {
+    height: 380px;
+  }
+}
+
+@media screen and (min-width: 767px) and (max-width: 800px) and (min-height: 1023px) {
+  .right-container {
+    height: 450px;
+  }
+}
+

@@ -22,6 +22,9 @@
 }
 
 @media only screen and (max-width: 610px) {
+  .forecast-list {
+    height: 15em;
+  }
   .forecast-list h2 {
     font-size: 17px;
   }
@@ -36,5 +39,11 @@
 @media only screen and (max-width: 425px) {
   .forecast-list h2 {
     font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 767px) and (max-width: 800px) and (min-height: 1023px) {
+  .forecast-list {
+    height: 17em;
   }
 }

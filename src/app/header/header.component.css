@@ -5,6 +5,11 @@
   margin: 10px 15px 0 15px;
 }
 
+/* .dropdown {
+  font-size: 12px;
+  padding: 4px;
+} */
+
 .notLoggedHeader {
   display: flex;
   flex-direction: row;
